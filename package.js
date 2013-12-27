@@ -5,17 +5,32 @@ Package.describe({
 Package.on_use(function (api, where) {
   api.use([
     'templating',
-    'handlebars',
     'less'
   ], 'client');
 
+  api.use([
+    'coffeescript',
+    'minimongoid',
+    'stripe'
+  ], ['client', 'server'])
+
+
+
+  api.add_files([
+    'collections/users.coffee'
+  ], ['client', 'server']);
+
   api.add_files([
     'client/creditCard/creditCard.html',
-    'client/creditCard/creditCard.less'
+    'client/creditCard/creditCard.less',
+    'public/img/credit-cards.png',
+    'public/img/cvc.png'
   ], 'client');
 
   api.add_files([
-    'public/img/credit-cards.png',
-    'public/img/cvc.png'
-  ], 'client')
+    'server/billing.coffee',
+    'server/methods.coffee'
+  ], 'server');
+
+  api.export('BillingUser', 'server')
 });

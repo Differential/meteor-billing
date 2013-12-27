@@ -1,0 +1,20 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "meteor-billing": {
+        "path": "."
+      }
+    },
+    "packages": {
+      "meteor-billing": {
+        "path": "."
+      },
+      "stripe": {
+        "git": "https://github.com/appleifreak/stripe-meteor.git",
+        "tag": "v1.4.0",
+        "commit": "7afbaecda1442124566096cd52f55170e4a78033"
+      }
+    }
+  }
+}
