@@ -7,6 +7,7 @@
   "git": "",
   "packages": {
     "minimongoid": "0.8.3",
+    "jquery-validation": "0.1.1",
     "stripe": "1.4.0"
   }
 }

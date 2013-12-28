@@ -1,16 +1,20 @@
 Future = Meteor.require('fibers/future')
 
 Meteor.methods
-  createCustomer: (userId, card, callback) -> 
-    Stripe = StripeAPI(Billing.settings.apiKey)
-    user = BillingUser.find(_id: userId)
-    console.log user
-    return
 
+  #
+  #  Creates stripe customer then updates the user document with the stripe customerId and cardId
+  #
+  createCustomer: (userId, card) -> 
+    Stripe = StripeAPI(Billing.settings.secretKey)
+    user = BillingUser.first(_id: userId)
+    unless user then throw new Meteor.Error 404, "User not found."
 
-    if user
-      future = new Future()
-      updateUser = Meteor.bindEnvironment (error, customer) =>
+    future = new Future()
+    Stripe.customers.create
+      email: user.emails[0].address
+      card: card.id
+    , Meteor.bindEnvironment (error, customer) =>
         if error
           throw new Meteor.Error 500, "Error creating customer."
         else
@@ -23,18 +27,8 @@ Meteor.methods
             if error
               throw new Meteor.Error 500, 'Error updating customer information.'
             else
-              if callback then callback(Stripe, customer)
               future.return()
       , (error) ->
         console.log error
         future.throw error
-
-      console.log 'Creating customer...', email
-      Stripe.customers.create
-        email: email
-        card: card.id
-      , updateUser
-
-      future.wait()
-
-Meteor.call 'createCustomer'
+    future.wait()

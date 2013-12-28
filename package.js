@@ -5,7 +5,9 @@ Package.describe({
 Package.on_use(function (api, where) {
   api.use([
     'templating',
-    'less'
+    'less',
+    'jquery',
+    'jquery-validation'
   ], 'client');
 
   api.use([
@@ -21,8 +23,12 @@ Package.on_use(function (api, where) {
   ], ['client', 'server']);
 
   api.add_files([
-    'client/creditCard/creditCard.html',
-    'client/creditCard/creditCard.less',
+    'client/views/creditCard/creditCard.html',
+    'client/views/creditCard/creditCard.less',
+    'client/billing.coffee',
+    'client/index.html',
+    'client/styles.less',
+    'client/validation.coffee',
     'public/img/credit-cards.png',
     'public/img/cvc.png'
   ], 'client');

@@ -1,3 +1,3 @@
 @Billing = 
   settings:
-    apiKey: ''
+    secretKey: ''
