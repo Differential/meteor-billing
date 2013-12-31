@@ -139,7 +139,8 @@ Meteor.methods
     console.log 'Getting past invoices for', Meteor.userId()
     future = new Future()
     Stripe = StripeAPI(Billing.settings.secretKey)
-    Stripe.invoices.list customer: Meteor.user().profile.customerId, (error, invoices) ->
+    customerId = Meteor.user().profile.customerId
+    Stripe.invoices.list customer: customerId, (error, invoices) ->
       if error then future.throw error
       else future.return invoices
     future.wait()
@@ -147,11 +148,12 @@ Meteor.methods
   #
   # Get next invoice
   #
-  getUpcomingInvoice: ->
-    console.log 'Getting upcoming invoice for', Meteor.userId()
+  getUpcomingInvoice: ->    
+    console.log 'Getting upcoming invoice for', Meteor.userId()    
     future = new Future()
     Stripe = StripeAPI(Billing.settings.secretKey)
-    Stripe.invoices.retrieveUpcoming customer: Meteor.user().profile.customerId, (error, upcoming) ->
+    customerId = Meteor.user().profile.customerId
+    Stripe.invoices.retrieveUpcoming customerId, (error, upcoming) ->
       if error then future.throw error
       else future.return upcoming
     future.wait()

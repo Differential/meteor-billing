@@ -25,6 +25,9 @@ Package.on_use(function (api, where) {
   api.add_files([
     'client/views/creditCard/creditCard.html',
     'client/views/creditCard/creditCard.less',
+    'client/views/billing/billing.html',
+    'client/views/billing/billing.coffee',
+    'client/views/billing/billing.less',
     'client/billing.coffee',
     'client/index.html',
     'client/styles.less',
