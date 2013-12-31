@@ -43,7 +43,7 @@ Template.billing.helpers
     Session.get 'billing.invoices.upcoming'
 
   pricingPlan: ->
-    upcomingInvoice = Session.get 'billing.invoies.upcoming'
+    upcomingInvoice = Session.get 'billing.invoices.upcoming'
     if upcomingInvoice
       sub = _.findWhere upcomingInvoice.lines.data, type: 'subscription'
       plan = sub.plan
