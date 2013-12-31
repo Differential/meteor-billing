@@ -6,7 +6,7 @@ Meteor.methods
   # Creates stripe customer then updates the user document with the stripe customerId and cardId
   #
   createCustomer: (userId, card) ->
-    console.log 'Creating customer for', userId    
+    console.log 'Creating customer for', userId
     user = BillingUser.first(_id: userId)
     unless user then throw new Meteor.Error 404, "User not found.  Customer cannot be created."
 
@@ -30,6 +30,9 @@ Meteor.methods
         future.throw new Meteor.Error error.error, error.message
     future.wait()
 
+  #
+  # Update stripe subscription for user with provided plan and quantitiy
+  #
   updateSubscription: (userId, plan, quantity) ->
     console.log 'Updating subscription for', userId    
     user = BillingUser.first(_id: userId)
@@ -58,11 +61,11 @@ Meteor.methods
         future.throw error
     future.wait()
 
-
   #
   # Manually cancels the stripe subscription for the provided customerId
   #
   cancelSubscription: (customerId) ->
+    console.log 'Canceling subscription for', customerId
     user = BillingUser.first('profile.customerId': customerId)
     unless user then new Meteor.Error 404, "User not found.  Subscription cannot be canceled."
     
@@ -78,9 +81,10 @@ Meteor.methods
     future.wait()
 
   #
-  # Remove subscriptionId, 
+  # A subscription was deleted from Stripe, remove subscriptionId and card from user.
   #
   subscriptionDeleted: (customerId) ->
+    console.log 'Subscription deleted for', customerId
     user = BillingUser.first('profile.customerId': customerId)
     unless user then new Meteor.Error 404, "User not found.  Subscription cannot be deleted."
 
@@ -106,6 +110,7 @@ Meteor.methods
   # Restart a subscription that was previously canceled
   #
   restartSubscription: (userId, card) ->
+    console.log 'Restarting subscription for', userId
     user = BillingUser.first(_id: userId)
     if user then customerId = user.profile.customerId
     unless user and customerId then new Meteor.Error 404, "User not found.  Subscription cannot be restarted."
@@ -127,11 +132,11 @@ Meteor.methods
         future.throw error
     future.wait()
 
-
   #
   # Get past invoices
   #
   getInvoices: ->
+    console.log 'Getting past invoices for', Meteor.userId()
     future = new Future()
     Stripe = StripeAPI(Billing.settings.secretKey)
     Stripe.invoices.list customer: Meteor.user().profile.customerId, (error, invoices) ->
@@ -139,11 +144,11 @@ Meteor.methods
       else future.return invoices
     future.wait()
 
-
   #
   # Get next invoice
   #
   getUpcomingInvoice: ->
+    console.log 'Getting upcoming invoice for', Meteor.userId()
     future = new Future()
     Stripe = StripeAPI(Billing.settings.secretKey)
     Stripe.invoices.retrieveUpcoming customer: Meteor.user().profile.customerId, (error, upcoming) ->
