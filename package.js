@@ -11,6 +11,10 @@ Package.on_use(function (api, where) {
   ], 'client');
 
   api.use([
+    'npm'
+  ], 'server')
+
+  api.use([
     'coffeescript',
     'minimongoid',
     'stripe'
