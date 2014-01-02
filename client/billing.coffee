@@ -1,6 +1,9 @@
-@Billing = 
-  settings:
-    publishableKey: ''
+@Billing =
+  settings: {}
+  config: (opts) ->
+    defaults = 
+      publishableKey: ''
+    @settings = _.extend defaults, opts
   createToken: (form, callback) ->
     Stripe.setPublishableKey(@settings.publishableKey);
     $form = $(form)
