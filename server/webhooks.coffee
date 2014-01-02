@@ -5,7 +5,7 @@ RESTstop.add 'webhooks', ->
     when 'charge.failed'
       RESTstop.call @, 'cancelSubscription', @params.data.object.customer
     when 'customer.subscription.deleted'
-      RESTstop.call @, 'disableCustomer', @params.data.object.customer
+      RESTstop.call @, 'subscriptionDeleted', @params.data.object.customer
     when 'customer.deleted'
-      User.destroyAll 'profile.customerId': @params.data.object.id
+      BillingUser.destroyAll 'profile.customerId': @params.data.object.id
     else console.log(@params.type, 'was ignored')
