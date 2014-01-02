@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "Various billing functionality packaged up"
+  summary: "Various billing functionality packaged up."
 });
 
 Package.on_use(function (api, where) {
