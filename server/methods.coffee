@@ -31,7 +31,7 @@ Meteor.methods
     Stripe = StripeAPI(Billing.settings.secretKey)
     updateSubscription = Async.wrap Stripe.customers, 'updateSubscription'
     try
-      subscription = updateSubscription customerId, plan: plan, prorate: true, quantity: quantity
+      subscription = updateSubscription customerId, plan: plan, prorate: false, quantity: quantity
       Meteor.users.update _id: userId,
         $set: 'profile.subscriptionId': subscription.id
     catch e
