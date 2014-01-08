@@ -97,3 +97,6 @@ Template._invoice.helpers
 
   showInvoicePeriod: ->
     Billing.settings.showInvoicePeriod
+
+  invoiceExplaination: ->
+    Billing.settings.invoiceExplaination

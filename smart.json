@@ -3,7 +3,7 @@
   "description": "Various billing functionality packaged up.",
   "homepage": "https://github.com/BeDifferential/meteor-billing",
   "author": "Differential (http://differential.io)",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "git": "https://github.com/BeDifferential/meteor-billing.git",
   "packages": {
     "minimongoid": "0.8.3",
