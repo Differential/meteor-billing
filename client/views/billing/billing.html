@@ -42,9 +42,11 @@
     <div class="row billing-footer">
       <div class="col-md-12">
         <div class="pull-right">
+          {{#if showPricingPlan}}
           <div class="price">
             {{pricingPlan}}
           </div>
+          {{/if}}
           <button id="cancel-subscription" class="btn btn-danger pull-right">
             <i class="fa fa-times"></i>
             Cancel Subscription
@@ -85,7 +87,7 @@
 
 
 <template name="_invoice">
-  <div class="panel panel-default">
+  <div class="panel panel-default invoice">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" href="#{{id}}">

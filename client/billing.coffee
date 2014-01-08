@@ -4,6 +4,7 @@
     defaults = 
       publishableKey: ''
       showInvoicePeriod: true
+      showPricingPlan: true
     @settings = _.extend defaults, opts
   createToken: (form, callback) ->
     Stripe.setPublishableKey(@settings.publishableKey);

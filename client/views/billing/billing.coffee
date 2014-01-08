@@ -42,6 +42,9 @@ Template.billing.helpers
   upcomingInvoice: ->
     Session.get 'billing.invoices.upcoming'
 
+  showPricingPlan: ->
+    Billing.settings.showPricingPlan
+
   pricingPlan: ->
     upcomingInvoice = Session.get 'billing.invoices.upcoming'
     if upcomingInvoice
