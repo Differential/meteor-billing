@@ -21,7 +21,7 @@ Meteor.methods
   #
   # Update stripe subscription for user with provided plan and quantitiy
   #
-  updateSubscription: (userId, plan, quantity) ->
+  updateSubscription: (userId, params) ->
     console.log 'Updating subscription for', userId
     user = BillingUser.first(_id: userId)
     if user then customerId = user.profile.customerId
@@ -31,7 +31,7 @@ Meteor.methods
     Stripe = StripeAPI(Billing.settings.secretKey)
     updateSubscription = Async.wrap Stripe.customers, 'updateSubscription'
     try
-      subscription = updateSubscription customerId, plan: plan, prorate: false, quantity: quantity
+      subscription = updateSubscription customerId, params
       Meteor.users.update _id: userId,
         $set: 'profile.subscriptionId': subscription.id
     catch e
