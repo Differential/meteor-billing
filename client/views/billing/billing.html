@@ -94,7 +94,9 @@
               {{invoiceAmt amount_due}} on {{invoiceDate this.date}}
             </strong>
           </span>
+          {{#if showInvoicePeriod}}
           <span class="text-muted pull-right"><small>{{invoiceDate period_start}} - {{invoiceDate period_end}}<small></span>
+          {{/if}}
         </a>
       </h4>
     </div>

@@ -91,3 +91,6 @@ Template._invoice.helpers
 
   invoiceAmt: (amt) ->
     inDollars(amt)
+
+  showInvoicePeriod: ->
+    Billing.settings.showInvoicePeriod
