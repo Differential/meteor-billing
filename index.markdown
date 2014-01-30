@@ -10,11 +10,11 @@ desc: A meteorite package for various billing functions using stripe
 This package is currently a container for a lot of reusable components related to subscription billing using stripe.
 
 
-# Client
+### Client
 {% assign cc = '{{> creditCard}}' %}
 `{{ cc }}` - Renders a simple form to collect credit card information.
 
 
-# Server Methods
+### Server Methods
 * `createCustomer: (userId, card)`
 
