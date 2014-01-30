@@ -1,0 +1,16 @@
+.credit-card img {
+  height: 20px;
+  margin-left: 10px;
+}
+.credit-card label img {
+  height: 15px;
+  margin-left: 10px;
+  position: relative;
+  top: -2px;
+}
+.credit-card .expiration input {
+  text-align: center;
+}
+.credit-card .expiration span {
+  position: absolute;
+}

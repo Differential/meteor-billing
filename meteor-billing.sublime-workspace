@@ -1,0 +1,658 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"in",
+				"invoices"
+			],
+			[
+				"cus",
+				"customerId"
+			],
+			[
+				"cre",
+				"createCard"
+			],
+			[
+				"create",
+				"createCard"
+			],
+			[
+				"dele",
+				"deleteCard"
+			],
+			[
+				"customer",
+				"customerId"
+			],
+			[
+				"can",
+				"cancelSubscription"
+			],
+			[
+				"upd",
+				"updateSubscription"
+			],
+			[
+				"bind",
+				"bindEnvironment"
+			],
+			[
+				"creat",
+				"createCustomer"
+			],
+			[
+				"ass",
+				"assetIds"
+			],
+			[
+				"de",
+				"deprecatedAssetIds"
+			],
+			[
+				"dns",
+				"dnsRecordId"
+			],
+			[
+				"sub",
+				"subdomainId"
+			],
+			[
+				"stor",
+				"storageClient"
+			],
+			[
+				"app",
+				"appId"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.js",
+			"settings":
+			{
+				"buffer_size": 985,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "smart.json",
+			"settings":
+			{
+				"buffer_size": 444,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/billing.coffee",
+			"settings":
+			{
+				"buffer_size": 604,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/billing.coffee",
+			"settings":
+			{
+				"buffer_size": 120,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/views/billing/billing.html",
+			"settings":
+			{
+				"buffer_size": 4329,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/views/billing/billing.coffee",
+			"settings":
+			{
+				"buffer_size": 2961,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/webhooks.coffee",
+			"settings":
+			{
+				"buffer_size": 470,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/methods.coffee",
+			"settings":
+			{
+				"buffer_size": 4284,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/schnie/repos/meteor-billing/client/views/billing/billing.less",
+		"/home/schnie/repos/meteor-billing/client/views/creditCard/creditCard.html",
+		"/home/schnie/repos/meteor-billing/client/views/billing/billing.html",
+		"/home/schnie/repos/meteor-billing/packages.json",
+		"/home/schnie/repos/meteor-billing/smart.json",
+		"/home/schnie/repos/meteor-billing/package.js",
+		"/home/schnie/repos/carpapp/client/views/themes/default/home.html",
+		"/home/schnie/repos/carpapp/server/publishApp.coffee",
+		"/home/schnie/repos/carpapp/client/views/admin/edit/edit.coffee",
+		"/home/schnie/repos/carpapp/client/views/admin/edit/edit.html",
+		"/home/schnie/repos/carpapp/collections/app.coffee",
+		"/home/schnie/repos/carpapp/server/cloud.coffee",
+		"/home/schnie/repos/carpapp/client/views/admin/new/new.coffee",
+		"/home/schnie/repos/carpapp/server/methods.coffee",
+		"/home/schnie/repos/carpapp/client/views/home/home.less",
+		"/home/schnie/repos/carpapp/client/views/home/home.coffee",
+		"/home/schnie/repos/carpapp/client/views/home/home.html",
+		"/home/schnie/repos/carpapp/private/themes/default/home.html",
+		"/home/schnie/repos/carpapp/client/router/router.coffee",
+		"/home/schnie/repos/carpapp/client/views/admin/edit.coffee",
+		"/home/schnie/repos/carpapp/client/views/admin/edit.html",
+		"/home/schnie/repos/carpapp/client/views/admin/new.coffee",
+		"/home/schnie/repos/carpapp/client/views/admin/new.html",
+		"/home/schnie/repos/carpapp/server/fixtures.coffee",
+		"/home/schnie/repos/carpapp/.meteor/local/build/programs/client/app/client/views/themes/default/theme.less.css",
+		"/home/schnie/repos/carpapp/client/views/themes/default/bottom.txt",
+		"/home/schnie/repos/carpapp/smart.json",
+		"/home/schnie/repos/carpapp/.meteor/packages",
+		"/home/schnie/repos/carpapp/smart.lock",
+		"/home/schnie/repos/liquid/client/router/response.coffee",
+		"/home/schnie/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/schnie/repos/liquid/client/views/datasets/showDataset/showDataset.html",
+		"/home/schnie/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/schnie/repos/liquid/client/views/responses/showRecentResponses/recentDatasetResponses.html",
+		"/home/schnie/bin/git-dude",
+		"/home/schnie/repos/liquid/client/validationConfig.coffee",
+		"/home/schnie/repos/liquid/client/router/dataset.coffee",
+		"/home/schnie/repos/liquid/client/router/dashboard.coffee",
+		"/home/schnie/repos/liquid/client/router/_config.coffee",
+		"/home/schnie/repos/liquid/client/router/comingSoon.coffee",
+		"/home/schnie/repos/liquid/client/views/responses/showResponse/showResponse.coffee",
+		"/home/schnie/repos/liquid/client/views/responses/showResponse/showResponse.html",
+		"/home/schnie/repos/liquid/client/views/responses/addResponse/addResponse.coffee",
+		"/home/schnie/repos/liquid/client/views/responses/addResponse/addResponse.html",
+		"/home/schnie/repos/liquid/client/router/profile.coffee",
+		"/home/schnie/repos/liquid/client/views/loading.html",
+		"/home/schnie/repos/liquid/client/views/responses/showRecentResponses/recentDatasetResponses.coffee",
+		"/home/schnie/repos/liquid/client/views/datasets/datasetNav.html",
+		"/home/schnie/repos/liquid/client/views/responses/showRecentResponses/recentDatasetResponses.less",
+		"/home/schnie/repos/liquid/client/views/datasets/showDataset/recentDatasetResponses.coffee",
+		"/home/schnie/repos/liquid/client/views/datasets/showDataset/recentDatasetResponses.html",
+		"/home/schnie/repos/liquid/client/views/datasets/datasets.coffee",
+		"/home/schnie/repos/liquid/client/views/datasets/datasets.html",
+		"/home/schnie/repos/liquid/client/views/forms/addForm/_formElement.coffee",
+		"/home/schnie/repos/liquid/client/views/forms/addForm/_formElement.html",
+		"/home/schnie/repos/liquid/client/views/forms/addForm/addForm.coffee",
+		"/home/schnie/repos/liquid/client/views/forms/addForm/addForm.html",
+		"/home/schnie/.bashrc",
+		"/home/schnie/.profile",
+		"/home/schnie/.gitconfig",
+		"/home/schnie/Desktop/api_docs/samples/javascript/api.html",
+		"/home/schnie/.config/touchegg/touchegg.conf",
+		"/home/schnie/Downloads/readme.txt",
+		"/usr/local/bin/brightness",
+		"/home/schnie/unity/unity-7.1.2+13.10.20131014.1/plugins/unityshell/src/unityshell.cpp"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+			"/home/schnie/repos/carpapp"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"assetIds.background",
+			"background",
+			"assetIds",
+			"cloud",
+			"urlPrefix",
+			"openId"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 985,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								198,
+								198
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "smart.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								224,
+								224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/billing.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								170,
+								170
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "server/billing.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								80,
+								80
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "client/views/billing/billing.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4191,
+								4191
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2001.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "client/views/billing/billing.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2961,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2921,
+								2921
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1242.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "server/webhooks.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 470,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								360,
+								360
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "server/methods.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "meteor-billing.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"app.",
+				"collections/app.coffee"
+			],
+			[
+				"edit.html",
+				"client/views/admin/edit/edit.html"
+			],
+			[
+				"fix",
+				"server/fixtures.coffee"
+			],
+			[
+				"edit.coff",
+				"client/views/admin/edit.coffee"
+			],
+			[
+				"publishapp",
+				"server/publishApp.coffee"
+			],
+			[
+				"fixt",
+				"server/fixtures.coffee"
+			],
+			[
+				"router/data",
+				"client/router/dataset.coffee"
+			],
+			[
+				"router/respons",
+				"client/router/response.coffee"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"l",
+				"~/repos/liquid/liquid.sublime-project"
+			],
+			[
+				"li",
+				"~/repos/liquid/liquid.sublime-project"
+			],
+			[
+				"",
+				"~/repos/liquid/liquid.sublime-project"
+			],
+			[
+				"ai",
+				"~/repos/airplane-mode/airplane-mode.sublime-project"
+			],
+			[
+				"nour",
+				"~/repos/nourish/nourish.sublime-project"
+			],
+			[
+				"nou",
+				"~/repos/nourish/nourish.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 338.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

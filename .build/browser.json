@@ -1,0 +1,87 @@
+{
+  "format": "unipackage-slice-pre1",
+  "packageVariables": [
+    {
+      "name": "__coffeescriptShare"
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "templating"
+    },
+    {
+      "package": "less"
+    },
+    {
+      "package": "jquery"
+    },
+    {
+      "package": "jquery-validation"
+    },
+    {
+      "package": "coffeescript"
+    },
+    {
+      "package": "minimongoid"
+    },
+    {
+      "package": "stripe"
+    }
+  ],
+  "resources": [
+    {
+      "type": "head",
+      "file": "browser/head",
+      "length": 72,
+      "offset": 0
+    },
+    {
+      "type": "css",
+      "file": "browser/packages/billing/client/views/creditCard/creditCard.less.css",
+      "length": 270,
+      "offset": 0,
+      "servePath": "/packages/billing/client/views/creditCard/creditCard.less.css"
+    },
+    {
+      "type": "css",
+      "file": "browser/packages/billing/client/views/billing/billing.less.css",
+      "length": 524,
+      "offset": 0,
+      "servePath": "/packages/billing/client/views/billing/billing.less.css"
+    },
+    {
+      "type": "css",
+      "file": "browser/packages/billing/client/styles.less.css",
+      "length": 52,
+      "offset": 0,
+      "servePath": "/packages/billing/client/styles.less.css"
+    },
+    {
+      "type": "asset",
+      "file": "browser/packages/billing/public/img/credit-cards.png",
+      "length": 8966,
+      "offset": 0,
+      "servePath": "/packages/billing/public/img/credit-cards.png",
+      "path": "public/img/credit-cards.png"
+    },
+    {
+      "type": "asset",
+      "file": "browser/packages/billing/public/img/cvc.png",
+      "length": 3991,
+      "offset": 0,
+      "servePath": "/packages/billing/public/img/cvc.png",
+      "path": "public/img/cvc.png"
+    },
+    {
+      "type": "prelink",
+      "file": "browser/packages/billing.js",
+      "length": 18144,
+      "offset": 0,
+      "servePath": "/packages/billing.js",
+      "sourceMap": "browser/packages/billing.js.map"
+    }
+  ]
+}

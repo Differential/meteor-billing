@@ -1,0 +1,69 @@
+{
+  "builtBy": "meteor/10",
+  "sliceDependencies": {
+    "browser.json": {
+      "files": {
+        "/home/schnie/repos/carpapp/packages/billing/package.js": "92e7b904c0eda8ad8b10220358a1ba51732994cd",
+        "/home/schnie/repos/carpapp/packages/billing/collections/users.coffee": "46532181a527fe7a49d86903fd54a0c7bc4ada11",
+        "/home/schnie/repos/carpapp/packages/billing/client/views/creditCard/creditCard.html": "554051c5ad9c076972daf5c289b2a8e8ae87a693",
+        "/home/schnie/repos/carpapp/packages/billing/client/views/creditCard/creditCard.less": "37c06695e18cf2f941567cac6cf7a0152be73543",
+        "/home/schnie/repos/carpapp/packages/billing/client/views/billing/billing.html": "c2819e4962496103981e400df50a4f2a0b538e81",
+        "/home/schnie/repos/carpapp/packages/billing/client/views/billing/billing.coffee": "61812be86331503c03819280b043d220fa350164",
+        "/home/schnie/repos/carpapp/packages/billing/client/views/billing/billing.less": "09001627a07a2465054ecd50760ded42c7e707bf",
+        "/home/schnie/repos/carpapp/packages/billing/client/billing.coffee": "def7994868ca5679cbc41832112341ad04f0d654",
+        "/home/schnie/repos/carpapp/packages/billing/client/index.html": "7a18059bd75fb913920317cf0b17662b65247791",
+        "/home/schnie/repos/carpapp/packages/billing/client/styles.less": "62718c07a4e81783ad4ae4785382d22996478890",
+        "/home/schnie/repos/carpapp/packages/billing/client/validation.coffee": "608562cb32bf612db412142c6e1bda569ccda935",
+        "/home/schnie/repos/carpapp/packages/billing/public/img/credit-cards.png": "2f90a661ea510d0a265b9f1fdacd98ea3fe12db2",
+        "/home/schnie/repos/carpapp/packages/billing/public/img/cvc.png": "184a37e4bf618df8ecec09e96a92a4ae4c3f61a5",
+        "/home/schnie/repos/carpapp/packages/jquery-validation/package.js": "242f536b534f817c558bd4b35d725381bde376f6",
+        "/home/schnie/repos/carpapp/packages/minimongoid/package.js": "38b06e68b62bf83ccf337c3edf8c2ac5aa5a5aa5",
+        "/home/schnie/repos/carpapp/packages/stripe/package.js": "925e98f50eae290350c8ab982fe76299abd9480a"
+      },
+      "directories": []
+    },
+    "os.json": {
+      "files": {
+        "/home/schnie/repos/carpapp/packages/billing/package.js": "92e7b904c0eda8ad8b10220358a1ba51732994cd",
+        "/home/schnie/repos/carpapp/packages/billing/collections/users.coffee": "46532181a527fe7a49d86903fd54a0c7bc4ada11",
+        "/home/schnie/repos/carpapp/packages/billing/server/billing.coffee": "35fec5a1bbe8826c452f2948ab26b40b28c4c566",
+        "/home/schnie/repos/carpapp/packages/billing/server/methods.coffee": "7b4c586d5a200a38a489b14fabdd818393a15a34",
+        "/home/schnie/repos/carpapp/packages/npm/package.js": "0c957f57654986c9926d77f71aa25bfff6c1dd71",
+        "/home/schnie/repos/carpapp/packages/minimongoid/package.js": "38b06e68b62bf83ccf337c3edf8c2ac5aa5a5aa5",
+        "/home/schnie/repos/carpapp/packages/stripe/package.js": "925e98f50eae290350c8ab982fe76299abd9480a"
+      },
+      "directories": []
+    },
+    "tests.browser.json": {
+      "files": {
+        "/home/schnie/repos/carpapp/packages/billing/package.js": "92e7b904c0eda8ad8b10220358a1ba51732994cd"
+      },
+      "directories": []
+    },
+    "tests.os.json": {
+      "files": {
+        "/home/schnie/repos/carpapp/packages/billing/package.js": "92e7b904c0eda8ad8b10220358a1ba51732994cd"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/schnie/repos/carpapp/packages/billing/package.js": "92e7b904c0eda8ad8b10220358a1ba51732994cd"
+    },
+    "directories": []
+  },
+  "pluginProviderPackages": {
+    "billing": "/home/schnie/repos/carpapp/packages/billing",
+    "meteor": "/home/schnie/.meteor/packages/meteor/a23ceb0df4",
+    "templating": "/home/schnie/.meteor/packages/templating/86600fc073",
+    "less": "/home/schnie/.meteor/packages/less/fdc72d3d3d",
+    "jquery": "/home/schnie/.meteor/packages/jquery/885efa0449",
+    "jquery-validation": "/home/schnie/repos/carpapp/packages/jquery-validation",
+    "coffeescript": "/home/schnie/.meteor/packages/coffeescript/2601fac52e",
+    "minimongoid": "/home/schnie/repos/carpapp/packages/minimongoid",
+    "stripe": "/home/schnie/repos/carpapp/packages/stripe",
+    "npm": "/home/schnie/repos/carpapp/packages/npm"
+  },
+  "source": "/home/schnie/repos/carpapp/packages/billing"
+}

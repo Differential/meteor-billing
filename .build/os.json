@@ -1,0 +1,39 @@
+{
+  "format": "unipackage-slice-pre1",
+  "packageVariables": [
+    {
+      "name": "BillingUser",
+      "export": true
+    },
+    {
+      "name": "__coffeescriptShare"
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "npm"
+    },
+    {
+      "package": "coffeescript"
+    },
+    {
+      "package": "minimongoid"
+    },
+    {
+      "package": "stripe"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "os/packages/billing.js",
+      "length": 8058,
+      "offset": 0,
+      "servePath": "/packages/billing.js",
+      "sourceMap": "os/packages/billing.js.map"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+.billing .panel .panel-heading {
+  padding: 10px 8px;
+}
+.billing .panel .panel-heading a {
+  text-decoration: none;
+}
+.billing .panel .panel-body {
+  padding: 8px;
+}
+.billing .panel .panel-body .billing-disclaimer {
+  padding-top: 30px;
+}
+.billing .billing-loader {
+  color: rgba(5, 5, 5, 0.2);
+  text-align: center;
+}
+.billing .billing-footer {
+  margin-top: 80px;
+}
+.billing .billing-footer .price {
+  text-align: right;
+  margin: 5px 0px;
+  font-weight: 500;
+  font-size: 30px;
+}
+.billing .invoice {
+  font-size: .7em;
+}
