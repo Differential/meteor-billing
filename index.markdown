@@ -40,4 +40,4 @@ jQuery validate is already included and an object named `ccValidation` should be
 ### Server
 * `createCustomer: (userId, card)` where userId is Meteor's user collection id and card is the token returned from Billing.createCustomer(form) on the client.  This sets `profile.customerId` and `profile.cardId` on the associated user.
 * `updateSubscription: (userId, params)` where params is a hash of options for stripe.  ex: `params = plan: 'standard', quantity: 0, prorate: false, trial_end: someDate`.  This sets `profile.subscriptionId` to the subscription id returned from stripe.
-
+* `cancelSubscription: (customerId)` where customerId is the stripe customer id (`profile.customerId`).
