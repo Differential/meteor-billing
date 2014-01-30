@@ -26,6 +26,7 @@ Example:
             Meteor.call 'createCustomer', Meteor.userId(), response, true, (error, response) ->
               unless error
                 Meteor.call 'startSubscription', (error, response) ->
+                  doWhatever()
 {% endhighlight %}
 
 ### Server
