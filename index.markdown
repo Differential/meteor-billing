@@ -31,5 +31,6 @@ Client side example:
 jQuery validate is already included and an object named `ccValidation` should be available to use for validation rules as shown above.  In this example, `startSubscription` is a server method that creates some params to pass to the provided `updateSubscription` method, shown below.
 
 ### Server
-* `createCustomer: (userId, card)` where userId is Meteor's user collection id and card is the token returned from Billing.createCustomer(form) on the client.  This sets `profile.customerId` and `profile.cardId` on the associated user. 
+* `createCustomer: (userId, card)` where userId is Meteor's user collection id and card is the token returned from Billing.createCustomer(form) on the client.  This sets `profile.customerId` and `profile.cardId` on the associated user.
+* `updateSubscription: (userId, params)` where params is a hash of options for stripe.  ex: params = plan: 'standard', quantity: 0, prorate: false, trial_end: someDate
 
