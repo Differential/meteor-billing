@@ -14,8 +14,7 @@ This package is currently a container for a lot of reusable components related t
 {% assign cc = '{{> creditCard}}' %}
 `{{ cc }}` - Renders a simple form to collect credit card information.
 
-jQuery validate is already included and an object named `ccValidation` should be available to use for validation rules.
-Example:
+Client side example:
 {% highlight coffeescript %}
   Template.signUp.rendered = ->
     $('form').validate
@@ -28,6 +27,8 @@ Example:
                 Meteor.call 'startSubscription', (error, response) ->
                   doWhatever()
 {% endhighlight %}
+
+jQuery validate is already included and an object named `ccValidation` should be available to use for validation rules as shown above.  In this example, `startSubscription` is a server method that creates some params to pass to the provided `updateSubscription` method, shown below.
 
 ### Server
 * `createCustomer: (userId, card)` where userId is Meteor's user collection id and card is the token returned from Billing.createCustomer(form) on the client.  This sets `profile.customerId` and `profile.cardId` on the associated user. 
