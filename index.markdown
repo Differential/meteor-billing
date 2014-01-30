@@ -11,6 +11,13 @@ This package is currently a container for a lot of reusable components related t
 
 
 ### Client
+Configure the package:
+
+{% highlight coffeescript %}
+Billing.config
+  publishableKey: your_publishable_key
+{% endhighlight %}
+
 {% assign cc = '{{> creditCard}}' %}
 `{{ cc }}` - Renders a simple form to collect credit card information.
 
