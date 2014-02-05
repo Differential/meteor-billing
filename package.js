@@ -12,13 +12,13 @@ Package.on_use(function (api, where) {
 
   api.use([
     'npm'
-  ], 'server')
+  ], 'server');
 
   api.use([
     'coffeescript',
     'minimongoid',
     'stripe'
-  ], ['client', 'server'])
+  ], ['client', 'server']);
 
 
 
@@ -45,5 +45,6 @@ Package.on_use(function (api, where) {
     'server/methods.coffee'
   ], 'server');
 
-  api.export('BillingUser', 'server')
+  api.export('BillingUser', 'server');
+
 });
