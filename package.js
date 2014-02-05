@@ -12,13 +12,13 @@ Package.on_use(function (api, where) {
 
 	api.use([
 		'npm'
-	], 'server')
+	], 'server');
 
 	api.use([
 		'coffeescript',
 		'minimongoid',
 		'stripe'
-	], ['client', 'server'])
+	], ['client', 'server']);
 
 
 
@@ -36,7 +36,6 @@ Package.on_use(function (api, where) {
 		'client/index.html',
 		'client/styles.less',
 		'client/validation.coffee',
-		'client/i18n/english.coffee',
 		'public/img/credit-cards.png',
 		'public/img/cvc.png'
 	], 'client');
@@ -46,15 +45,11 @@ Package.on_use(function (api, where) {
 		'server/methods.coffee'
 	], 'server');
 
-
 	api.add_files([
 		'client/i18n/english.coffee'
-	], 'client');
-
-	
-
-
-	api.export('BillingUser', 'server')
-
+		], 'client');
 	api.use('just-i18n', 'client')
+	
+	api.export('BillingUser', 'server');
+
 });
