@@ -10,6 +10,7 @@
     "jquery-validation": "0.1.1",
     "stripe": "1.4.0",
     "reststop2": "0.5.4",
+    "just-i18n": {},
     "npm": "0.2.6"
   }
 }
