@@ -6,7 +6,13 @@
       showInvoicePeriod: true
       showPricingPlan: true
       invoiceExplaination: ''
+      currency: '$'
+      language: 'en'
+      ddBeforeMm: false #for countries with date format dd/mm/yyyy
+    i18n.setLanguage opts and opts.language or defaults.language
+
     @settings = _.extend defaults, opts
+    
   createToken: (form, callback) ->
     Stripe.setPublishableKey(@settings.publishableKey);
     $form = $(form)

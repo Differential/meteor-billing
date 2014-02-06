@@ -7,7 +7,8 @@ Package.on_use(function (api, where) {
     'templating',
     'less',
     'jquery',
-    'jquery-validation'
+    'jquery-validation',
+    'just-i18n'
   ], 'client');
 
   api.use([
@@ -19,7 +20,6 @@ Package.on_use(function (api, where) {
     'minimongoid',
     'stripe-server'
   ], ['client', 'server']);
-
 
 
   api.add_files([
@@ -37,13 +37,14 @@ Package.on_use(function (api, where) {
     'client/styles.less',
     'client/validation.coffee',
     'public/img/credit-cards.png',
-    'public/img/cvc.png'
+    'public/img/cvc.png',
+    'client/i18n/english.coffee'
   ], 'client');
 
   api.add_files([
     'server/billing.coffee',
     'server/methods.coffee'
-  ], 'server');
+  ], 'server'); 
 
   api.export('BillingUser', 'server');
 
