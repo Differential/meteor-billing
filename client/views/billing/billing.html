@@ -17,7 +17,7 @@
     <div class="row">
       
       <div class="col-xs-6">
-        <h2>Past Invoices</h2>
+        <h2>{{i18n "Past Invoices"}}</h2>
         <div class="panel-group" id="past-invoice-accordion">
           {{#each invoices}}
             {{> _invoice}}
@@ -28,7 +28,7 @@
       </div>
 
       <div class="col-xs-6">
-        <h2>Upcoming Invoice</h2>
+        <h2>{{i18n "Upcoming Invoice"}}</h2>
         <div class="panel-group" id="upcoming-invoice-accordion">
           {{#with upcomingInvoice}}
             {{> _invoice}}
@@ -49,7 +49,7 @@
           {{/if}}
           <button id="cancel-subscription" class="btn btn-danger pull-right">
             <i class="fa fa-times"></i>
-            Cancel Subscription
+            {{i18n "Cancel Subscription"}}
             {{#if cancelingSubscription}}
               <i class="fa fa-spinner fa-spin"></i>
             {{/if}}
@@ -68,16 +68,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Confirm Cancelling Subscription</h4>
+          <h4 class="modal-title" id="myModalLabel">{{i18n "Confirm Cancelling Subscription"}}</h4>
         </div>
         <div class="modal-body">
-          Are you sure you want to cancel your subscription?  Your data will be saved, so you can re-enable your account at any time.
+          {{i18n "Are you sure you want to cancel your subscription?"}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> {{i18n "Cancel"}}</button>
           <button type="button" class="btn btn-blue btn-confirm-cancel-subscription">
             <i class="fa fa-check"></i> 
-            Yes, cancel my subscription
+            {{i18n "Yes, cancel my subscription"}}
           </button>
         </div>
       </div>
@@ -93,7 +93,7 @@
         <a data-toggle="collapse" href="#{{id}}">
           <span class="text-primary">
             <strong>
-              {{invoiceAmt amount_due}} on {{invoiceDate this.date}}
+              {{invoiceAmt amount_due}} {{i18n "on"}} {{invoiceDate this.date}}
             </strong>
           </span>
           {{#if showInvoicePeriod}}
@@ -105,9 +105,9 @@
     <div id="{{id}}" class="panel-collapse collapse">
       <div class="panel-body">
         <div class="clearfix">
-          <span class="pull-left"><h5>Line Items</h5></span>
+          <span class="pull-left"><h5>{{i18n "Line Items"}}</h5></span>
           {{#if paid}}
-          <span class="label label-success pull-right">Paid</span>
+          <span class="label label-success pull-right">{{i18n "Paid"}} </span>
           {{/if}}
         </div>
         {{#each lines.data}}

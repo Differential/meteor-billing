@@ -1,15 +1,15 @@
 <template name="creditCard">
   <div class="credit-card">
-    <h2>Billing Info <img src="/packages/billing/public/img/credit-cards.png"></h2>
+    <h2>{{i18n "Billing Info"}} <img src="/packages/billing/public/img/credit-cards.png"></h2>
     <div class="form-section">
       <div class="form-group">
-        <label>Card Number</label>
+        <label>{{i18n "Card Number"}}</label>
         <input type="number" name="cc-num" class="form-control" placeholder="••••••••••••••••"/>
       </div>
       <div class="row">
         <div class="col-md-7">
           <div class="expiration">
-            <label>Expiration</label>
+            <label>{{i18n "Expiration"}}</label>
             <div class="row">
               <div class="col-xs-6">
                 <div class="form-group">
@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-5">
           <div class="form-group">
-            <label>Card Code <img src="/packages/billing/public/img/cvc.png"></label>
+            <label>{{i18n "Card Code"}} <img src="/packages/billing/public/img/cvc.png"></label>
             <input type="number" name="cc-cvc" class="form-control" placeholder="CVC"/>
           </div>
         </div>
