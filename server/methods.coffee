@@ -13,7 +13,7 @@ Meteor.methods
     try
       customer = create email: user.emails[0].address, card: card.id
       Meteor.users.update _id: user._id,
-        $set: 'profile.customerId': customer.id, 'profile.cardId': customer.default_card
+        $set: 'billing.customerId': customer.id, 'billing.cardId': customer.default_card
     catch e
       console.error e
       throw new Meteor.Error 500, e.message
@@ -24,16 +24,16 @@ Meteor.methods
   updateSubscription: (userId, params) ->
     console.log 'Updating subscription for', userId
     user = BillingUser.first(_id: userId)
-    if user then customerId = user.profile.customerId
+    if user then customerId = user.billing.customerId
     unless user and customerId then new Meteor.Error 404, "User not found.  Subscription cannot be updated."
-    if user.profile.waiveFees or user.profile.admin then return
+    if user.billing.waiveFees or user.billing.admin then return
 
     Stripe = StripeAPI(Billing.settings.secretKey)
     updateSubscription = Async.wrap Stripe.customers, 'updateSubscription'
     try
       subscription = updateSubscription customerId, params
       Meteor.users.update _id: userId,
-        $set: 'profile.subscriptionId': subscription.id
+        $set: 'billing.subscriptionId': subscription.id, 'billing.planId'
     catch e
       console.error e
       throw new Meteor.Error 500, e.message
@@ -43,7 +43,7 @@ Meteor.methods
   #
   cancelSubscription: (customerId) ->
     console.log 'Canceling subscription for', customerId
-    user = BillingUser.first('profile.customerId': customerId)
+    user = BillingUser.first('billing.customerId': customerId)
     unless user then new Meteor.Error 404, "User not found.  Subscription cannot be canceled."
 
     Stripe = StripeAPI(Billing.settings.secretKey)
@@ -60,16 +60,16 @@ Meteor.methods
   #
   subscriptionDeleted: (customerId) ->
     console.log 'Subscription deleted for', customerId
-    user = BillingUser.first('profile.customerId': customerId)
+    user = BillingUser.first('billing.customerId': customerId)
     unless user then new Meteor.Error 404, "User not found.  Subscription cannot be deleted."
     
-    user.update('profile.subscriptionId': null)
+    user.update('billing.subscriptionId': null)
 
     Stripe = StripeAPI(Billing.settings.secretKey)
     deleteCard = Async.wrap Stripe.customers, 'deleteCard'
     try
-      deleteCard user.profile.customerId, user.profile.cardId
-      user.update('profile.cardId': null)
+      deleteCard user.billing.customerId, user.billing.cardId
+      user.update('billing.cardId': null)
     catch e
       console.error e
       throw new Meteor.Error 500, e.message
@@ -81,14 +81,14 @@ Meteor.methods
   restartSubscription: (userId, card) ->
     console.log 'Restarting subscription for', userId
     user = BillingUser.first(_id: userId)
-    if user then customerId = user.profile.customerId
+    if user then customerId = user.billing.customerId
     unless user and customerId then new Meteor.Error 404, "User not found.  Subscription cannot be restarted."
 
     Stripe = StripeAPI(Billing.settings.secretKey)
     createCard = Async.wrap Stripe.customers 'createCard'
     try
       newCard = createCard customerId, card: card.id
-      user.update('profile.cardId': newCard.id)
+      user.update('billing.cardId': newCard.id)
     catch e
       console.error e
       throw new Meteor.Error 500, e.message
@@ -99,7 +99,7 @@ Meteor.methods
   getInvoices: ->
     console.log 'Getting past invoices for', Meteor.userId()
     Stripe = StripeAPI(Billing.settings.secretKey)
-    customerId = Meteor.user().profile.customerId
+    customerId = Meteor.user().billing.customerId
     try
       invoices = Async.wrap(Stripe.invoices, 'list')(customer: customerId)
     catch e
@@ -114,7 +114,7 @@ Meteor.methods
   getUpcomingInvoice: ->    
     console.log 'Getting upcoming invoice for', Meteor.userId()    
     Stripe = StripeAPI(Billing.settings.secretKey)
-    customerId = Meteor.user().profile.customerId
+    customerId = Meteor.user().billing.customerId
     try
       invoice = Async.wrap(Stripe.invoices, 'retrieveUpcoming')(customerId)
     catch e
