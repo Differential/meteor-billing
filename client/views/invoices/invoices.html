@@ -1,5 +1,5 @@
-<template name="billing">
-  <div class="container billing">
+<template name="invoices">
+  <div class="container invoices">
     {{#if billingError}}
       <div class="row alert alert-danger">
         <div class="col-xs-12">
@@ -127,7 +127,9 @@
         <div class="row billing-disclaimer">
           <div class="col-md-12">
             <em>
-            * {{invoiceExplaination}}
+              {{#if invoiceExplaination}}
+                * {{invoiceExplaination}}
+              {{/if}}
             </em>
           </div>
         </div>
