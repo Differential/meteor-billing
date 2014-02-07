@@ -19,6 +19,27 @@ Meteor.methods
       throw new Meteor.Error 500, e.message
 
   #
+  # Create a card on a customer and set cardId
+  #
+  createCard: (userId, card) ->
+    console.log 'Creating card for', userId
+    user = BillingUser.first(_id: userId)
+    unless user then throw new Meteor.Error 404, "User not found.  Card cannot be created."
+
+    Stripe = StripeAPI(Billing.settings.secretKey)
+    create = Async.wrap Stripe.customers, 'createCard'
+    try
+      card = create user.billing.customerId, card: card.id
+      console.log card
+      Meteor.users.update _id: user._id,
+        $set: 'billing.cardId': card.id
+
+    catch e
+      console.error e
+      throw new Meteor.Error 500, e.message
+
+
+  #
   # Update stripe subscription for user with provided plan and quantitiy
   #
   updateSubscription: (userId, params) ->
@@ -33,7 +54,7 @@ Meteor.methods
     try
       subscription = updateSubscription customerId, params
       Meteor.users.update _id: userId,
-        $set: 'billing.subscriptionId': subscription.id, 'billing.planId'
+        $set: 'billing.subscriptionId': subscription.id, 'billing.planId' : params.plan
     catch e
       console.error e
       throw new Meteor.Error 500, e.message
@@ -63,13 +84,13 @@ Meteor.methods
     user = BillingUser.first('billing.customerId': customerId)
     unless user then new Meteor.Error 404, "User not found.  Subscription cannot be deleted."
     
-    user.update('billing.subscriptionId': null)
+    user.update 'billing.subscriptionId': null, 'billing.planId': null
 
     Stripe = StripeAPI(Billing.settings.secretKey)
     deleteCard = Async.wrap Stripe.customers, 'deleteCard'
     try
       deleteCard user.billing.customerId, user.billing.cardId
-      user.update('billing.cardId': null)
+      user.update 'billing.cardId': null
     catch e
       console.error e
       throw new Meteor.Error 500, e.message
