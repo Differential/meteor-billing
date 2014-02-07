@@ -18,6 +18,8 @@
       
       <div class="col-xs-6">
         <h2>{{i18n "Past Invoices"}}</h2>
+        
+        {{#if hasBilling}}
         <div class="panel-group" id="past-invoice-accordion">
           {{#each invoices}}
             {{> _invoice}}
@@ -25,20 +27,25 @@
             <i class="icon-spinner icon-spin icon-large fa fa-spinner fa-3x fa-spin billing-loader"></i>
           {{/each}}
         </div>
+        {{/if}}
       </div>
 
       <div class="col-xs-6">
         <h2>{{i18n "Upcoming Invoice"}}</h2>
+        
+        {{#if hasSubscription}}
         <div class="panel-group" id="upcoming-invoice-accordion">
           {{#with upcomingInvoice}}
             {{> _invoice}}
           {{else}}
             <i class="icon-spinner icon-spin icon-large fa fa-spinner fa-3x fa-spin billing-loader"></i>
           {{/with}}
-          </div>
-      </div>    
+        </div>
+        {{/if}}
+      </div>
     
     </div>
+    {{#if hasSubscription}}
     <div class="row billing-footer">
       <div class="col-md-12">
         <div class="pull-right">
@@ -47,7 +54,6 @@
             {{pricingPlan}}
           </div>
           {{/if}}
-          {{#if showCancel}}
           <button id="cancel-subscription" class="btn btn-danger pull-right">
             <i class="fa fa-times"></i>
             {{i18n "Cancel Subscription"}}
@@ -55,10 +61,10 @@
               <i class="fa fa-spinner fa-spin"></i>
             {{/if}}
           </button>
-          {{/if}}
         </div>
       </div>
     </div>
+    {{/if}}
   </div>
   {{> cancelSubscriptionModal}}
 </template>

@@ -4,18 +4,28 @@ Template.invoices.created = ->
   Session.set 'invoices.invoices.past', null
   Session.set 'invoices.invoices.upcoming', null
 
-  Meteor.call 'getInvoices', (error, response) ->
-    if error
-      Session.set 'invoices.error', i18n('Error getting past invoices')
-    else
-      Session.set 'invoices.invoices.past', response.data
+  usr = BillingUser.current()
 
-  Meteor.call 'getUpcomingInvoice', (error, response) ->
-    if error
-      Session.set 'invoices.error', i18n('Error getting upcoming invoice')
-    else
-      response.id = new Meteor.Collection.ObjectID().toHexString()
-      Session.set 'invoices.invoices.upcoming', response
+  if usr.billing
+    Meteor.call 'getInvoices', (error, response) ->
+      if error
+        if error.error is 404
+          Session.set 'invoices.invoices.past', null
+        else
+          Session.set 'invoices.error', i18n('Error getting past invoices')
+      else
+        Session.set 'invoices.invoices.past', response.data
+
+  if usr.billing and usr.billing.subscriptionId
+    Meteor.call 'getUpcomingInvoice', (error, response) ->
+      if error
+        if error.error is 404
+          Session.set 'invoices.invoices.upcoming', null
+        else
+        Session.set 'invoices.error', i18n('Error getting upcoming invoice')
+      else
+        response.id = new Meteor.Collection.ObjectID().toHexString()
+        Session.set 'invoices.invoices.upcoming', response
 
 inDollars = (amt) ->
   currency = Billing.settings.currency
@@ -58,7 +68,10 @@ Template.invoices.helpers
       plan = sub.plan
       "#{inDollars(plan.amount)}/#{i18n(plan.interval)}"
 
-  showCancel: ->
+  hasBilling: ->
+    BillingUser.current().billing
+
+  hasSubscription: ->
     BillingUser.current().billing and BillingUser.current().billing.subscriptionId
 
 

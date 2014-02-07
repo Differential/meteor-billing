@@ -144,7 +144,7 @@ Meteor.methods
         throw new Meteor.Error 500, e.message
       invoices
     else
-      throw new Meteor.Error 500, "No subscription"
+      throw new Meteor.Error 404, "No subscription"
     
 
   #
@@ -162,4 +162,4 @@ Meteor.methods
         throw new Meteor.Error 500, e.message
       invoice
     else
-      throw new Meteor.Error 500, "No subscription"
+      throw new Meteor.Error 404, "No subscription"
