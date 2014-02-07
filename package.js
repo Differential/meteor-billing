@@ -46,6 +46,6 @@ Package.on_use(function (api, where) {
     'server/methods.coffee'
   ], 'server'); 
 
-  api.export('BillingUser', 'server');
+  api.export('BillingUser', ['server', 'client']);
 
 });

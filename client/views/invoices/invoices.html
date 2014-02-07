@@ -22,7 +22,7 @@
           {{#each invoices}}
             {{> _invoice}}
           {{else}}
-            <i class="fa fa-spinner fa-3x fa-spin billing-loader"></i>
+            <i class="icon-spinner icon-spin icon-large fa fa-spinner fa-3x fa-spin billing-loader"></i>
           {{/each}}
         </div>
       </div>
@@ -33,7 +33,7 @@
           {{#with upcomingInvoice}}
             {{> _invoice}}
           {{else}}
-            <i class="fa fa-spinner fa-3x fa-spin billing-loader"></i>
+            <i class="icon-spinner icon-spin icon-large fa fa-spinner fa-3x fa-spin billing-loader"></i>
           {{/with}}
           </div>
       </div>    
@@ -47,6 +47,7 @@
             {{pricingPlan}}
           </div>
           {{/if}}
+          {{#if showCancel}}
           <button id="cancel-subscription" class="btn btn-danger pull-right">
             <i class="fa fa-times"></i>
             {{i18n "Cancel Subscription"}}
@@ -54,6 +55,7 @@
               <i class="fa fa-spinner fa-spin"></i>
             {{/if}}
           </button>
+          {{/if}}
         </div>
       </div>
     </div>

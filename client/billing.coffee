@@ -22,3 +22,7 @@
       exp_year: $form.find('[name=cc-exp-year]').val()
       cvc: $form.find('[name=cc-cvc]').val()
     , callback) # callback(status, response)
+
+
+Meteor.startup ->
+  Meteor.subscribe 'currentUser'

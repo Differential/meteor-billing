@@ -20,10 +20,10 @@ en =
   "Subscription to": "Subscription to"
 
   #notifications
-  "Error getting past invoices.": "Error getting past invoices."
-  "Error getting upcoming invoice.": "Error getting upcoming invoice."
-  "Error canceling subscription.": "Error canceling subscription."
-  "Your subscription has been canceled.": "Your subscription has been canceled."
+  "Error getting past invoices": "Error getting past invoices."
+  "Error getting upcoming invoice": "Error getting upcoming invoice."
+  "Error canceling subscription": "Error canceling subscription."
+  "Your subscription has been canceled": "Your subscription has been canceled."
 
 
 i18n.map "en", en

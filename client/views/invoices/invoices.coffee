@@ -5,12 +5,14 @@ Template.invoices.created = ->
   Session.set 'invoices.invoices.upcoming', null
 
   Meteor.call 'getInvoices', (error, response) ->
-    if error then Session.set 'invoices.error', i18n('Error getting past invoices.')
-    else Session.set 'invoices.invoices.past', response.data
+    if error
+      Session.set 'invoices.error', i18n('Error getting past invoices')
+    else
+      Session.set 'invoices.invoices.past', response.data
 
   Meteor.call 'getUpcomingInvoice', (error, response) ->
     if error
-      Session.set 'invoices.error', i18n('Error getting upcoming invoice.')
+      Session.set 'invoices.error', i18n('Error getting upcoming invoice')
     else
       response.id = new Meteor.Collection.ObjectID().toHexString()
       Session.set 'invoices.invoices.upcoming', response
@@ -41,7 +43,7 @@ Template.invoices.helpers
     Session.get 'invoices.cancelingSubscription'
 
   invoices: ->
-    Session.get 'invoies.invoices.past'
+    Session.get 'invoices.invoices.past'
 
   upcomingInvoice: ->
     Session.get 'invoices.invoices.upcoming'
@@ -55,6 +57,9 @@ Template.invoices.helpers
       sub = _.findWhere upcomingInvoice.lines.data, type: 'subscription'
       plan = sub.plan
       "#{inDollars(plan.amount)}/#{i18n(plan.interval)}"
+
+  showCancel: ->
+    BillingUser.current().billing and BillingUser.current().billing.subscriptionId
 
 
 Template.invoices.events
@@ -77,9 +82,9 @@ Template.cancelSubscriptionModal.events
     Meteor.call 'cancelSubscription', Meteor.user().billing.customerId, (error, response) ->
       Session.set 'invoices.cancelingSubscription', false
       if error
-        Session.set 'invoices.error', i18n('Error canceling subscription.')
+        Session.set 'invoices.error', i18n('Error canceling subscription')
       else
-        Session.set 'invoices.success', i18n('Your subscription has been canceled.')
+        Session.set 'invoices.success', i18n('Your subscription has been canceled')
 
 
 Template._invoice.helpers

@@ -27,17 +27,32 @@ Meteor.methods
     unless user then throw new Meteor.Error 404, "User not found.  Card cannot be created."
 
     Stripe = StripeAPI(Billing.settings.secretKey)
-    create = Async.wrap Stripe.customers, 'createCard'
+    createCard = Async.wrap Stripe.customers, 'createCard'
     try
-      card = create user.billing.customerId, card: card.id
-      console.log card
+      card = createCard user.billing.customerId, card: card.id
       Meteor.users.update _id: user._id,
         $set: 'billing.cardId': card.id
-
     catch e
       console.error e
       throw new Meteor.Error 500, e.message
 
+  #
+  # Delete a card on customer and unset cardId
+  #
+  deleteCard: (userId, card) ->
+    console.log 'Deleting card for', userId
+    user = BillingUser.first(_id: userId)
+    unless user then throw new Meteor.Error 404, "User not found.  Card cannot be deleted."
+
+    Stripe = StripeAPI(Billing.settings.secretKey)
+    deleteCard = Async.wrap Stripe.customers, 'deleteCard'
+    try
+      card = deleteCard user.billing.customerId, card.id
+      Meteor.users.update _id: user._id,
+        $set: 'billing.cardId': null
+    catch e
+      console.error e
+      throw new Meteor.Error 500, e.message        
 
   #
   # Update stripe subscription for user with provided plan and quantitiy
@@ -120,13 +135,16 @@ Meteor.methods
   getInvoices: ->
     console.log 'Getting past invoices for', Meteor.userId()
     Stripe = StripeAPI(Billing.settings.secretKey)
-    customerId = Meteor.user().billing.customerId
-    try
-      invoices = Async.wrap(Stripe.invoices, 'list')(customer: customerId)
-    catch e
-      console.error e
-      throw new Meteor.Error 500, e.message
-    invoices
+    if Meteor.user().billing
+      customerId = Meteor.user().billing.customerId
+      try
+        invoices = Async.wrap(Stripe.invoices, 'list')(customer: customerId)
+      catch e
+        console.error e
+        throw new Meteor.Error 500, e.message
+      invoices
+    else
+      throw new Meteor.Error 500, "No subscription"
     
 
   #
@@ -135,10 +153,13 @@ Meteor.methods
   getUpcomingInvoice: ->    
     console.log 'Getting upcoming invoice for', Meteor.userId()    
     Stripe = StripeAPI(Billing.settings.secretKey)
-    customerId = Meteor.user().billing.customerId
-    try
-      invoice = Async.wrap(Stripe.invoices, 'retrieveUpcoming')(customerId)
-    catch e
-      console.error e
-      throw new Meteor.Error 500, e.message
-    invoice
+    if Meteor.user().billing
+      customerId = Meteor.user().billing.customerId
+      try
+        invoice = Async.wrap(Stripe.invoices, 'retrieveUpcoming')(customerId)
+      catch e
+        console.error e
+        throw new Meteor.Error 500, e.message
+      invoice
+    else
+      throw new Meteor.Error 500, "No subscription"
