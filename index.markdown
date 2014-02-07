@@ -20,6 +20,9 @@ Billing.config
 {% assign cc = '{{> creditCard}}' %}
 `{{ cc }}` - Renders a simple form to collect credit card information.
 
+{% assign inv = '{{> invoices}}' %}
+`{{ inv }}` - Renders a list of past and upcoming invoices for the logged in customer.
+
 Client side example:
 {% highlight coffeescript %}
   Template.signUp.rendered = ->
@@ -45,9 +48,11 @@ Billing.config
 
 
 #### Methods
-* `createCustomer: (userId, card)` where userId is Meteor's user collection id and card is the token returned from Billing.createCustomer(form) on the client.  This sets `profile.customerId` and `profile.cardId` on the associated user.
-* `updateSubscription: (userId, params)` where params is a hash of options for stripe.  ex: `params = plan: 'standard', quantity: 0, prorate: false, trial_end: someDate`.  This sets `profile.subscriptionId` to the subscription id returned from stripe.
-* `cancelSubscription: (customerId)` where customerId is the stripe customer id (`profile.customerId`).
+* `createCustomer: (userId, card)` where userId is Meteor's user collection id and card is the token returned from Billing.createCustomer(form) on the client.  This sets `billing.customerId` and `billing.cardId` on the associated user.
+* `createCard: (userId, card)` where userId is Meteor's user collection id and card is the token returned from Billing.createCustomer(form) on the client.  This sets `billing.cardId` on the associated user.
+* `deleteCard: (userId, cardId)` where userId is Meteor's user collection id and cardId is 'billing.cardId'.
+* `updateSubscription: (userId, params)` where params is a hash of options for stripe.  ex: `params = plan: 'standard', quantity: 0, prorate: false, trial_end: someDate`.  This sets `billing.subscriptionId` to the subscription id returned from stripe.
+* `cancelSubscription: (customerId)` where customerId is the stripe customer id (`billing.customerId`).
 
 ### Webhooks
 #### Configure
