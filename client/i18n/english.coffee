@@ -1,5 +1,5 @@
 en =
-  #Billing
+  # Billing
   "Past Invoices": "Past Invoices"
   "Upcoming Invoice": "Upcoming Invoice"
   "Cancel Subscription": "Cancel Subscription"
@@ -11,15 +11,16 @@ en =
   "Line Items": "Line Items"
   "Paid": "Paid"
   "month": "month"
+  "Nothing to see here": "Nothing to see here."
 
-  #Credit Card
+  # Credit Card
   "Billing Info": "Billing Info"
   "Card Number": "Card Number"
   "Expiration": "Expiration"
   "Card Code": "Card Code"
   "Subscription to": "Subscription to"
 
-  #notifications
+  # Notifications
   "Error getting past invoices": "Error getting past invoices."
   "Error getting upcoming invoice": "Error getting upcoming invoice."
   "Error canceling subscription": "Error canceling subscription."
