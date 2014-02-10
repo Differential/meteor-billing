@@ -30,8 +30,7 @@ Meteor.methods
     createCard = Async.wrap Stripe.customers, 'createCard'
     try
       card = createCard user.billing.customerId, card: card.id
-      Meteor.users.update _id: user._id,
-        $set: 'billing.cardId': card.id
+      user.update('billing.cardId': card.id)
     catch e
       console.error e
       throw new Meteor.Error 500, e.message
@@ -39,7 +38,7 @@ Meteor.methods
   #
   # Delete a card on customer and unset cardId
   #
-  deleteCard: (userId, card) ->
+  deleteCard: (userId, cardId) ->
     console.log 'Deleting card for', userId
     user = BillingUser.first(_id: userId)
     unless user then throw new Meteor.Error 404, "User not found.  Card cannot be deleted."
@@ -47,9 +46,8 @@ Meteor.methods
     Stripe = StripeAPI(Billing.settings.secretKey)
     deleteCard = Async.wrap Stripe.customers, 'deleteCard'
     try
-      card = deleteCard user.billing.customerId, card.id
-      Meteor.users.update _id: user._id,
-        $set: 'billing.cardId': null
+      card = deleteCard user.billing.customerId, cardId
+      user.update('billing.cardId': null)
     catch e
       console.error e
       throw new Meteor.Error 500, e.message        
@@ -110,24 +108,6 @@ Meteor.methods
       console.error e
       throw new Meteor.Error 500, e.message
 
-
-  #
-  # Restart a subscription that was previously canceled
-  #
-  restartSubscription: (userId, card) ->
-    console.log 'Restarting subscription for', userId
-    user = BillingUser.first(_id: userId)
-    if user then customerId = user.billing.customerId
-    unless user and customerId then new Meteor.Error 404, "User not found.  Subscription cannot be restarted."
-
-    Stripe = StripeAPI(Billing.settings.secretKey)
-    createCard = Async.wrap Stripe.customers 'createCard'
-    try
-      newCard = createCard customerId, card: card.id
-      user.update('billing.cardId': newCard.id)
-    catch e
-      console.error e
-      throw new Meteor.Error 500, e.message
 
   #
   # Get past invoices
