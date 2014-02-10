@@ -96,17 +96,7 @@ Meteor.methods
     console.log 'Subscription deleted for', customerId
     user = BillingUser.first('billing.customerId': customerId)
     unless user then new Meteor.Error 404, "User not found.  Subscription cannot be deleted."
-    
     user.update 'billing.subscriptionId': null, 'billing.planId': null
-
-    Stripe = StripeAPI(Billing.settings.secretKey)
-    deleteCard = Async.wrap Stripe.customers, 'deleteCard'
-    try
-      deleteCard user.billing.customerId, user.billing.cardId
-      user.update 'billing.cardId': null
-    catch e
-      console.error e
-      throw new Meteor.Error 500, e.message
 
 
   #
