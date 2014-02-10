@@ -19,32 +19,36 @@
       <div class="col-xs-6">
         <h2>{{i18n "Past Invoices"}}</h2>
         
-        {{#if hasBilling}}
         <div class="panel-group" id="past-invoice-accordion">
           {{#each invoices}}
             {{> _invoice}}
           {{else}}
+            {{#if pastInvoicesWorking}}
             <i class="icon-spinner icon-spin icon-large fa fa-spinner fa-3x fa-spin billing-loader"></i>
+            {{else}}
+              Nothing to see here.
+            {{/if}}
           {{/each}}
         </div>
-        {{/if}}
       </div>
 
       <div class="col-xs-6">
         <h2>{{i18n "Upcoming Invoice"}}</h2>
         
-        {{#if hasSubscription}}
         <div class="panel-group" id="upcoming-invoice-accordion">
           {{#with upcomingInvoice}}
             {{> _invoice}}
           {{else}}
+            {{#if upcomingInvoicesWorking}}
             <i class="icon-spinner icon-spin icon-large fa fa-spinner fa-3x fa-spin billing-loader"></i>
+            {{else}}
+              Nothing to see here.
+            {{/if}}
           {{/with}}
         </div>
-        {{/if}}
       </div>
-    
     </div>
+
     {{#if hasSubscription}}
     <div class="row billing-footer">
       <div class="col-md-12">
@@ -64,9 +68,9 @@
         </div>
       </div>
     </div>
+    {{> cancelSubscriptionModal}}
     {{/if}}
   </div>
-  {{> cancelSubscriptionModal}}
 </template>
 
 <!-- CONFIRM REMOVE DEVICE MODAL -->

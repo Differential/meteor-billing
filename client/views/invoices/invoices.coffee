@@ -8,7 +8,9 @@ Template.invoices.rendered = ->
   usr = BillingUser.current()
 
   if usr.billing and not Session.get 'invoices.invoices.past'
+    Session.set 'invoices.past.working', true
     Meteor.call 'getInvoices', (error, response) ->
+      Session.set 'invoices.past.working', false
       if error
         if error.error is 404
           Session.set 'invoices.invoices.past', null
@@ -18,7 +20,9 @@ Template.invoices.rendered = ->
         Session.set 'invoices.invoices.past', response.data
 
   if usr.billing and usr.billing.subscriptionId and not Session.get 'invoices.invoices.upcoming'
+    Session.set 'invoices.upcoming.working', true
     Meteor.call 'getUpcomingInvoice', (error, response) ->
+      Session.set 'invoices.upcoming.working', false
       if error
         console.log error
         if error.error is 404
@@ -70,11 +74,14 @@ Template.invoices.helpers
       plan = sub.plan
       "#{inDollars(plan.amount)}/#{i18n(plan.interval)}"
 
-  hasBilling: ->
-    BillingUser.current().billing
-
   hasSubscription: ->
     BillingUser.current().billing and BillingUser.current().billing.subscriptionId
+
+  pastInvoicesWorking: ->
+    Session.get 'invoices.past.working'
+
+  upcomingInvoiceWorking: ->
+    Session.get 'invoices.upcoming.working'
 
 
 Template.invoices.events
