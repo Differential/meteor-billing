@@ -4,9 +4,10 @@ Template.invoices.created = ->
   Session.set 'invoices.invoices.past', null
   Session.set 'invoices.invoices.upcoming', null
 
+Template.invoices.rendered = ->
   usr = BillingUser.current()
 
-  if usr.billing
+  if usr.billing and not Session.get 'invoices.invoices.past'
     Meteor.call 'getInvoices', (error, response) ->
       if error
         if error.error is 404
@@ -16,9 +17,10 @@ Template.invoices.created = ->
       else
         Session.set 'invoices.invoices.past', response.data
 
-  if usr.billing and usr.billing.subscriptionId
+  if usr.billing and usr.billing.subscriptionId and not Session.get 'invoices.invoices.upcoming'
     Meteor.call 'getUpcomingInvoice', (error, response) ->
       if error
+        console.log error
         if error.error is 404
           Session.set 'invoices.invoices.upcoming', null
         else
