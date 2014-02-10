@@ -36,6 +36,22 @@ Meteor.methods
       throw new Meteor.Error 500, e.message
 
   #
+  #  Get details about a customers credit card
+  #
+  retrieveCard: (customerId, cardId) ->
+    console.log "Retrieving card #{cardId} for #{customerId}"
+    user = BillingUser.first 'billing.customerId': customerId
+    unless user then throw new Meteor.Error 404, "User not found.  Cannot retrieve card info."
+
+    Stripe = StripeAPI(Billing.settings.secretKey)
+    retrieveCard = Async.wrap Stripe.customers, 'retrieveCard'
+    try
+      retrieveCard user.billing.customerId, user.billing.cardId
+    catch e
+      console.log e
+      throw new Meteor.Error 500, e.message    
+
+  #
   # Delete a card on customer and unset cardId
   #
   deleteCard: (userId, cardId) ->

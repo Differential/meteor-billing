@@ -7,6 +7,7 @@ Package.on_use(function (api, where) {
     'templating',
     'less',
     'jquery',
+    'deps',
     'jquery-validation',
     'just-i18n'
   ], 'client');
@@ -32,6 +33,8 @@ Package.on_use(function (api, where) {
     'client/views/invoices/invoices.html',
     'client/views/invoices/invoices.coffee',
     'client/views/invoices/invoices.less',
+    'client/views/currentCreditCard/currentCreditCard.html',
+    'client/views/currentCreditCard/currentCreditCard.coffee',
     'client/billing.coffee',
     'client/index.html',
     'client/styles.less',

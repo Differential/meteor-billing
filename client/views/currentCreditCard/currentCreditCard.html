@@ -1,0 +1,12 @@
+<template name="currentCreditCard">
+  {{#with card}}
+    <div class="row current-credit-card">
+      <div class="col-md-6 card-details">
+        <strong>{{type}}</strong> ending in {{last4}}
+      </div>
+      <div class="col-md-6 card-expires">
+        <strong>Expires:</strong> {{exp_month}} / {{exp_year}}
+      </div>
+    </div>
+  {{/with}}
+</template>
