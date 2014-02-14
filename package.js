@@ -13,7 +13,8 @@ Package.on_use(function (api, where) {
   ], 'client');
 
   api.use([
-    'npm'
+    'npm',
+    'reststop2'
   ], 'server');
 
   api.use([
@@ -46,7 +47,8 @@ Package.on_use(function (api, where) {
 
   api.add_files([
     'server/billing.coffee',
-    'server/methods.coffee'
+    'server/methods.coffee',
+    'server/webhooks.coffee'
   ], 'server'); 
 
   api.export('BillingUser', ['server', 'client']);

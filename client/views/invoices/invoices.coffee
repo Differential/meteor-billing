@@ -24,11 +24,10 @@ Template.invoices.rendered = ->
     Meteor.call 'getUpcomingInvoice', (error, response) ->
       Session.set 'invoices.upcoming.working', false
       if error
-        console.log error
         if error.error is 404
           Session.set 'invoices.invoices.upcoming', null
         else
-        Session.set 'invoices.error', i18n('Error getting upcoming invoice')
+          Session.set 'invoices.error', i18n('Error getting upcoming invoice')
       else
         response.id = new Meteor.Collection.ObjectID().toHexString()
         Session.set 'invoices.invoices.upcoming', response
