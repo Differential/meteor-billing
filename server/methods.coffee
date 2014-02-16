@@ -66,7 +66,36 @@ Meteor.methods
       user.update('billing.cardId': null)
     catch e
       console.error e
-      throw new Meteor.Error 500, e.message        
+      throw new Meteor.Error 500, e.message
+
+  #
+  # Create a single one-time charge
+  #
+  createCharge: (params) ->
+    console.log "Creating charge"
+
+    Stripe = StripeAPI(Billing.settings.secretKey)
+    createCharge = Async.wrap Stripe.charges, 'create'
+    try
+      createCharge params
+    catch e
+      console.error e
+      throw new Meteor.Error 500, e.message  
+
+  #
+  # List charges with any filters applied
+  #
+  listCharges: (params) ->
+    console.log "Getting past charges"
+
+    Stripe = StripeAPI(Billing.settings.secretKey)
+    listCharges = Async.wrap Stripe.charges, 'list'
+    try
+      listCharges params
+    catch e
+      console.error e
+      throw new Meteor.Error 500, e.message
+    
 
   #
   # Update stripe subscription for user with provided plan and quantitiy
