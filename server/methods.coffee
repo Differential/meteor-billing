@@ -1,3 +1,13 @@
+wrap = (resource, method, params) ->
+  Stripe = StripeAPI(Billing.settings.secretKey)
+  call = Async.wrap Stripe[resource], method
+  try
+    call params
+  catch e
+    console.error e
+    throw new Meteor.Error 500, e.message
+
+
 Meteor.methods
 
   #
@@ -73,28 +83,14 @@ Meteor.methods
   #
   createCharge: (params) ->
     console.log "Creating charge"
-
-    Stripe = StripeAPI(Billing.settings.secretKey)
-    createCharge = Async.wrap Stripe.charges, 'create'
-    try
-      createCharge params
-    catch e
-      console.error e
-      throw new Meteor.Error 500, e.message  
+    wrap 'charges', 'create', params
 
   #
   # List charges with any filters applied
   #
   listCharges: (params) ->
     console.log "Getting past charges"
-
-    Stripe = StripeAPI(Billing.settings.secretKey)
-    listCharges = Async.wrap Stripe.charges, 'list'
-    try
-      listCharges params
-    catch e
-      console.error e
-      throw new Meteor.Error 500, e.message
+    wrap 'charges', 'list', params
     
 
   #
