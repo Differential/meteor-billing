@@ -13,6 +13,7 @@ Package.on_use(function (api, where) {
   ], 'client');
 
   api.use([
+    'accounts-password',
     'npm',
     'reststop2'
   ], 'server');
@@ -36,6 +37,7 @@ Package.on_use(function (api, where) {
     'client/views/invoices/invoices.less',
     'client/views/currentCreditCard/currentCreditCard.html',
     'client/views/currentCreditCard/currentCreditCard.coffee',
+    'client/startup.coffee',
     'client/billing.coffee',
     'client/index.html',
     'client/styles.less',
@@ -46,6 +48,7 @@ Package.on_use(function (api, where) {
   ], 'client');
 
   api.add_files([
+    'server/startup.coffee',
     'server/billing.coffee',
     'server/methods.coffee',
     'server/webhooks.coffee'

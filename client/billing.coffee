@@ -63,7 +63,3 @@ Result = ->
     ready: ->
       res = results[methodName]._get()
       if res then true else false
-      
-
-Meteor.startup ->
-  Meteor.subscribe 'currentUser'
