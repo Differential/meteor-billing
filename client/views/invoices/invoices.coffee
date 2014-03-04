@@ -7,6 +7,8 @@ Template.invoices.created = ->
 Template.invoices.rendered = ->
   usr = BillingUser.current()
 
+  unless usr then return
+
   if usr.billing and not Session.get 'invoices.invoices.past'
     Session.set 'invoices.past.working', true
     Meteor.call 'getInvoices', (error, response) ->
@@ -74,7 +76,8 @@ Template.invoices.helpers
       "#{inDollars(plan.amount)}/#{i18n(plan.interval)}"
 
   hasSubscription: ->
-    BillingUser.current().billing and BillingUser.current().billing.subscriptionId
+    usr = BillingUser.current()
+    usr and usr.billing and BillingUser.current().billing.subscriptionId
 
   pastInvoicesWorking: ->
     Session.get 'invoices.past.working'
