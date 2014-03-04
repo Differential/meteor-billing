@@ -44,8 +44,16 @@ Result = ->
     unless @_results[methodName]
       @_results[methodName] = new Result
 
+    # Get the result
     res = @_results[methodName]._get()
+
+    # If its an error object - return falsy value
+    if res.error then res = null else res
+
+    # Null out to ensure fresh data subsequent calls
     if res then @_results[methodName] = null
+
+    # Return it!
     res
 
   call: (methodName, params) ->
@@ -58,7 +66,7 @@ Result = ->
       results[methodName]._hasRun = true
       args = Array.prototype.splice.call arguments, 1
       Meteor.apply methodName, args, (err, res) ->
-        results[methodName]._set res
+        results[methodName]._set if err then err else res
 
     ready: ->
       res = results[methodName]._get()
