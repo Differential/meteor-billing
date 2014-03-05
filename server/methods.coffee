@@ -21,7 +21,8 @@ Meteor.methods
     Stripe = StripeAPI(Billing.settings.secretKey)
     create = Async.wrap Stripe.customers, 'create'
     try
-      customer = create email: user.emails[0].address, card: card.id
+      email = if user.emails then user.emails[0].address else ''
+      customer = create email: email, card: card.id
       Meteor.users.update _id: user._id,
         $set: 'billing.customerId': customer.id, 'billing.cardId': customer.default_card
     catch e
