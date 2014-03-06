@@ -18,6 +18,7 @@ Result = ->
   config: (opts) ->
     defaults = 
       publishableKey: ''
+      requireAddress: false
       showInvoicePeriod: true
       showPricingPlan: true
       invoiceExplaination: ''
@@ -36,6 +37,11 @@ Result = ->
       exp_month: $form.find('[name=cc-exp-month]').val()
       exp_year: $form.find('[name=cc-exp-year]').val()
       cvc: $form.find('[name=cc-cvc]').val()
+      address_line1: $form.find('[name=cc-address-line-1]').val()
+      address_line2: $form.find('[name=cc-address-line-2]').val()
+      address_city: $form.find('[name=cc-address-city]').val()
+      address_state: $form.find('[name=cc-address-state]').val()
+      address_zip: $form.find('[name=cc-address-zip]').val()      
     , callback) # callback(status, response)
 
   _results: {}

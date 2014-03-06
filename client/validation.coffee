@@ -28,3 +28,11 @@ $.validator.addMethod "exactlength", (value, element, param) ->
     required: true
     digits: true
     rangelength: [3, 4]
+  'cc-address-line-1':
+    required: true
+  'cc-address-city':
+    required: true
+  'cc-address-state':
+    required: true
+  'cc-address-zip':
+    required: true

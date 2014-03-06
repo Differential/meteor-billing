@@ -19,6 +19,7 @@ en =
   "Expiration": "Expiration"
   "Card Code": "Card Code"
   "Subscription to": "Subscription to"
+  "Address": "Addresss"
 
   # Notifications
   "Error getting past invoices": "Error getting past invoices."

@@ -32,6 +32,7 @@ Package.on_use(function (api, where) {
   api.add_files([
     'client/views/creditCard/creditCard.html',
     'client/views/creditCard/creditCard.less',
+    'client/views/creditCard/creditCard.coffee',
     'client/views/invoices/invoices.html',
     'client/views/invoices/invoices.coffee',
     'client/views/invoices/invoices.less',
