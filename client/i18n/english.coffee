@@ -14,6 +14,7 @@ en =
   "Nothing to see here": "Nothing to see here."
 
   # Credit Card
+  "Name": "Name"
   "Billing Info": "Billing Info"
   "Card Number": "Card Number"
   "Expiration": "Expiration"

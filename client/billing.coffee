@@ -19,6 +19,7 @@ Result = ->
     defaults = 
       publishableKey: ''
       requireAddress: false
+      requireName: false
       showInvoicePeriod: true
       showPricingPlan: true
       invoiceExplaination: ''
@@ -28,11 +29,15 @@ Result = ->
     i18n.setLanguage opts and opts.language or defaults.language
 
     @settings = _.extend defaults, opts
+
+  isValid: ->
+    $('form#billing-creditcard').parsley().validate()
     
   createToken: (form, callback) ->
     Stripe.setPublishableKey(@settings.publishableKey);
     $form = $(form)
     Stripe.card.createToken(
+      name: $(form).find('[name=cc-name]').val()
       number: $form.find('[name=cc-num]').val()
       exp_month: $form.find('[name=cc-exp-month]').val()
       exp_year: $form.find('[name=cc-exp-year]').val()

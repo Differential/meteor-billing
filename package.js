@@ -8,7 +8,7 @@ Package.on_use(function (api, where) {
     'less',
     'jquery',
     'deps',
-    'jquery-validation',
+    'parsley.js',
     'just-i18n'
   ], 'client');
 
@@ -38,11 +38,11 @@ Package.on_use(function (api, where) {
     'client/views/invoices/invoices.less',
     'client/views/currentCreditCard/currentCreditCard.html',
     'client/views/currentCreditCard/currentCreditCard.coffee',
+    'client/lib/parsley.css',
     'client/startup.coffee',
     'client/billing.coffee',
     'client/index.html',
     'client/styles.less',
-    'client/validation.coffee',
     'public/img/credit-cards.png',
     'public/img/cvc.png',
     'client/i18n/english.coffee'

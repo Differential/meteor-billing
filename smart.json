@@ -3,11 +3,11 @@
   "description": "Various billing functionality packaged up.",
   "homepage": "https://github.com/BeDifferential/meteor-billing",
   "author": "Differential (http://differential.io)",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "git": "https://github.com/BeDifferential/meteor-billing.git",
   "packages": {
     "minimongoid": "0.8.3",
-    "jquery-validation": "0.1.1",
+    "parsley.js": "1.2.4",
     "stripe-server": "0.1.2",
     "reststop2": {
       "version": "0.5.5"
