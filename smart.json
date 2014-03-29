@@ -13,6 +13,8 @@
       "version": "0.5.5"
     },
     "just-i18n": {
+      "git": "https://github.com/HiddenSwitch/meteor-just-i18n.git",
+      "branch": "handlebarsfix",
       "version": "0.1.1"
     },
     "npm": "0.2.6"
