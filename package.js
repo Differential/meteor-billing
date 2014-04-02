@@ -9,7 +9,7 @@ Package.on_use(function (api, where) {
     'jquery',
     'deps',
     'parsley.js',
-    'just-i18n'
+    'accounts-t9n'
   ], 'client');
 
   api.use([

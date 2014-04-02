@@ -10,7 +10,7 @@
     "parsley.js": "1.2.4",
     "stripe-server": "0.1.2",
     "reststop2": "0.5.5",
-    "just-i18n": {},
-    "npm": "0.2.6"
+    "npm": "0.2.6",
+    "accounts-t9n": {}
   }
 }

@@ -14,21 +14,20 @@ Result = ->
 
 
 @Billing =
-  settings: {}
-  config: (opts) ->
-    defaults = 
-      publishableKey: ''
-      requireAddress: false
-      requireName: false
-      showInvoicePeriod: true
-      showPricingPlan: true
-      invoiceExplaination: ''
-      currency: '$'
-      language: 'en'
-      ddBeforeMm: false #for countries with date format dd/mm/yyyy
-    i18n.setLanguage opts and opts.language or defaults.language
+  settings:
+    publishableKey: ''
+    requireAddress: false
+    requireName: false
+    showInvoicePeriod: true
+    showPricingPlan: true
+    invoiceExplaination: ''
+    currency: '$'
+    language: 'en'
+    ddBeforeMm: false #for countries with date format dd/mm/yyyy
 
-    @settings = _.extend defaults, opts
+  config: (opts) ->
+    @settings = _.extend @settings, opts
+    T9n.language = @settings.language
 
   isValid: ->
     $('form#billing-creditcard').parsley().validate()
