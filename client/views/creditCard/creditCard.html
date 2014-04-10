@@ -11,7 +11,7 @@
         {{/if}}
         <div class="form-group">
           <label>{{i18n "Card Number"}}</label>
-          <input type="number" name="cc-num" class="form-control" placeholder="••••••••••••••••" parsley-luhn="true" parsley-luhn-message="Please entere a valid credit card number" required />
+          <input type="tel" pattern="[0-9]*" name="cc-num" class="form-control" placeholder="••••••••••••••••" parsley-luhn="true" parsley-luhn-message="Please entere a valid credit card number" required />
         </div>
         <div class="row">
           <div class="col-md-7">
@@ -20,14 +20,14 @@
               <div class="row">
                 <div class="col-xs-6">
                   <div class="form-group">
-                    <input type="number" min="1" max="12" name="cc-exp-month" class="form-control" placeholder="MM" 
+                    <input type="tel" pattern="[0-9]*" min="1" max="12" name="cc-exp-month" class="form-control" placeholder="MM" 
                     parsley-rangelength="[2,2]" parsley-rangelength-message="This value should be exactly 2 digits" required/>
                   </div>
                 </div>
                 <span> / </span>
                 <div class="col-xs-6">
                   <div class="form-group">
-                    <input type="number" name="cc-exp-year" 
+                    <input type="tel" pattern="[0-9]*" name="cc-exp-year" 
                     data-parsley-trigger="keyup" parsley-rangelength="[4,4]" parsley-rangelength-message="This value should be exactly 4 digits" class="form-control" placeholder="YYYY" required />
                   </div>
                 </div>
@@ -37,7 +37,7 @@
           <div class="col-md-5">
             <div class="form-group">
               <label>{{i18n "Card Code"}} <img src="/packages/billing/public/img/cvc.png"></label>
-              <input type="number" name="cc-cvc" class="form-control" placeholder="CVC" required/>
+              <input type="tel" pattern="[0-9]*" name="cc-cvc" class="form-control" placeholder="CVC" required/>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <input type="number" name="cc-address-zip" class="form-control" placeholder="Zip" 
+                  <input type="tel" pattern="[0-9]*" name="cc-address-zip" class="form-control" placeholder="Zip" 
                   parsley-rangelength="[5,5]" parsley-rangelength-message="This value should be exactly 5 digits" required>
                 </div>
               </div>
