@@ -1,9 +1,9 @@
 {
-  "name": "billing2",
+  "name": "billing",
   "description": "Various billing functionality packaged up.",
   "homepage": "http://github.differential.io/meteor-billing/",
   "author": "Differential (http://differential.io)",
-  "version": "1.0.0",
+  "version": "0.2.5",
   "git": "https://github.com/BeDifferential/meteor-billing.git",
   "packages": {
     "minimongoid": "0.8.3",
