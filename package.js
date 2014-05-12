@@ -8,7 +8,7 @@ Package.on_use(function (api, where) {
     'less',
     'jquery',
     'deps',
-    'parsley.js',
+    'parsleyjs',
     'accounts-t9n'
   ], 'client');
 
