@@ -17,7 +17,7 @@ Template.invoices.rendered = ->
         if error.error is 404
           Session.set 'invoices.invoices.past', null
         else
-          Session.set 'invoices.error', i18n('Error getting past invoices')
+          Session.set 'invoices.error', t9n.get('Error getting past invoices')
       else
         Session.set 'invoices.invoices.past', response.data
 
@@ -29,7 +29,7 @@ Template.invoices.rendered = ->
         if error.error is 404
           Session.set 'invoices.invoices.upcoming', null
         else
-          Session.set 'invoices.error', i18n('Error getting upcoming invoice')
+          Session.set 'invoices.error', t9n.get('Error getting upcoming invoice')
       else
         response.id = new Meteor.Collection.ObjectID().toHexString()
         Session.set 'invoices.invoices.upcoming', response
@@ -73,7 +73,7 @@ Template.invoices.helpers
     if upcomingInvoice
       sub = _.findWhere upcomingInvoice.lines.data, type: 'subscription'
       plan = sub.plan
-      "#{inDollars(plan.amount)}/#{i18n(plan.interval)}"
+      "#{inDollars(plan.amount)}/#{t9n.get(plan.interval)}"
 
   hasSubscription: ->
     usr = BillingUser.current()
@@ -106,15 +106,15 @@ Template.cancelSubscriptionModal.events
     Meteor.call 'cancelSubscription', Meteor.user().billing.customerId, (error, response) ->
       Session.set 'invoices.cancelingSubscription', false
       if error
-        Session.set 'invoices.error', i18n('Error canceling subscription')
+        Session.set 'invoices.error', t9n.get('Error canceling subscription')
       else
-        Session.set 'invoices.success', i18n('Your subscription has been canceled')
+        Session.set 'invoices.success', t9n.get('Your subscription has been canceled')
 
 
 Template._invoice.helpers
   lineItemDescription: ->
     if @type is 'subscription'
-      "#{i18n("Subscription to")} #{@plan.name} (#{inDollars(@plan.amount)}/#{i18n(@plan.interval)})"
+      "#{t9n.get("Subscription to")} #{@plan.name} (#{inDollars(@plan.amount)}/#{t9n.get(@plan.interval)})"
     else if @type is 'invoiceitem'
       @description
 
