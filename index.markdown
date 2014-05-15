@@ -8,7 +8,7 @@ desc: A meteorite package for various billing functions using stripe
 # meteor-billing
 
 This package is currently a container for a lot of reusable components related to subscription billing using stripe.
-
+It keeps track of stripe related ids on a `billing` object embedded in the user's document.
 
 ## Client
 #### Configure
