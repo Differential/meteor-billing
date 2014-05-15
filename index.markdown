@@ -54,16 +54,17 @@ The package provides a basic handler for a few events:
 To use these default handlers, use your stripe dashboard to set the webhooks url to `your_url/api/webhooks`.
 You can of course, provide your own handlers instead of using these by pointing the webhooks url to your own implementation.
 
-
+{% assign if = '{{#if working}}' %}
+{% assign endif = '{{/if}}' %}
 ## Example:
 {% highlight html %}
 <form novalidate>
   {{cc}}
   <button type="submit" class="btn btn-primary btn-block upgrade" disabled="{{working}}">
     Upgrade Today
-    {{#if working}}
+    {{if}}
       <i class="fa fa-spinner fa-spin"></i>
-    {{/if}}
+    {{endif}}
   </button>
 </form>
 {% endhighlight %}
