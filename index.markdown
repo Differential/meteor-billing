@@ -18,7 +18,7 @@ Billing.config
 {% endhighlight %}
 
 #### Usage
-{% assign cc = {{> creditCard}} %}
+{% assign cc = '{{> creditCard}}' %}
 `{{ cc }}` - Renders a simple form to collect credit card information. This form will use parsley.js to validate in the client and show errors.
 
 {% assign inv = '{{> invoices}}' %}
