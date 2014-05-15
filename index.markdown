@@ -18,7 +18,7 @@ Billing.config
 {% endhighlight %}
 
 #### Usage
-{% assign cc = '{{> creditCard}}' %}
+{% assign cc = {{> creditCard}} %}
 `{{ cc }}` - Renders a simple form to collect credit card information. This form will use parsley.js to validate in the client and show errors.
 
 {% assign inv = '{{> invoices}}' %}
@@ -58,7 +58,7 @@ You can of course, provide your own handlers instead of using these by pointing 
 ## Example:
 {% highlight html %}
 <form novalidate>
-  {{> creditCard }}
+  `{{cc}}`
   <button type="submit" class="btn btn-primary btn-block upgrade" disabled="{{working}}">
     Upgrade Today
     {{#if working}}
