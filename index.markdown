@@ -2,7 +2,7 @@
 layout: default
 username: Differential
 repo: meteor-billing
-version: 0.2.9
+version: 0.3.0
 desc: A meteorite package for various billing functions using stripe
 ---
 # meteor-billing
