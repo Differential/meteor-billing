@@ -47,6 +47,7 @@ Billing.config
 
 ## Stripe Configuration
 The package provides a basic handler for a few events:
+
 * `charge.failed`: Cancels the associated user's subscription.
 * `customer.subscription.deleted`: Deletes the subscriptionId and planId from the associated user's `billing` object.
 * `customer.deleted`: Deletes the associated user from the database
@@ -56,6 +57,7 @@ You can of course, provide your own handlers instead of using these by pointing 
 
 {% assign if = '{{#if working}}' %}
 {% assign endif = '{{/if}}' %}
+
 ## Example:
 {% highlight html %}
 <form novalidate>
