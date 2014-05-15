@@ -58,7 +58,7 @@ You can of course, provide your own handlers instead of using these by pointing 
 ## Example:
 {% highlight html %}
 <form novalidate>
-  `{{cc}}`
+  {{cc}}
   <button type="submit" class="btn btn-primary btn-block upgrade" disabled="{{working}}">
     Upgrade Today
     {{#if working}}
