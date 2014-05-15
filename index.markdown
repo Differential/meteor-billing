@@ -46,7 +46,7 @@ Billing.config
 * `getUpcomingInvoice`: Gets the next invoice for current user.
 
 ## Stripe Configuration
-The package provides a basic handler for a few events:
+The package provides a basic handler for a few events
 
 * `charge.failed`: Cancels the associated user's subscription.
 * `customer.subscription.deleted`: Deletes the subscriptionId and planId from the associated user's `billing` object.
