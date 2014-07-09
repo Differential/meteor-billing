@@ -1,5 +1,6 @@
 en =
   # Billing
+  "Past Charges": "Past Charges"
   "Past Invoices": "Past Invoices"
   "Upcoming Invoice": "Upcoming Invoice"
   "Cancel Subscription": "Cancel Subscription"
@@ -23,6 +24,7 @@ en =
   "Address": "Address"
 
   # Notifications
+  "Error getting past charges": "Error getting past charges."
   "Error getting past invoices": "Error getting past invoices."
   "Error getting upcoming invoice": "Error getting upcoming invoice."
   "Error canceling subscription": "Error canceling subscription."

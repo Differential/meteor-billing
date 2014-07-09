@@ -87,11 +87,17 @@ Meteor.methods
     wrap 'charges', 'create', params
 
   #
-  # List charges with any filters applied
+  # List charges for user with any filters applied
   #
-  listCharges: (params) ->
-    console.log "Getting past charges"
-    wrap 'charges', 'list', params
+  listCharges: (filters) ->
+    console.log "Getting past charges for", Meteor.userId()
+    if Meteor.user().billing
+      params = customer: Meteor.user().billing.customerId
+      if filters
+        params = _.extend params, filters
+      wrap 'charges', 'list', params
+    else
+      throw new Meteor.Error 404, "No customer"
 
 
   #
