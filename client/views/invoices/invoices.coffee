@@ -108,8 +108,6 @@ Template.cancelSubscriptionModal.events
       if error
         Session.set 'invoices.error', t9n('Error canceling subscription')
       else
-        Meteor.users.update _id: Meteor.userId(),
-          $set: 'billing.subscriptionId': null
         Session.set 'invoices.success', t9n('Your subscription has been canceled')
 
 
