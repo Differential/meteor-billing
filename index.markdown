@@ -55,14 +55,23 @@ The package provides a basic handler for a few events
 To use these default handlers, use your stripe dashboard to set the webhooks url to `your_url/api/webhooks`.
 You can of course, provide your own handlers instead of using these by pointing the webhooks url to your own implementation.
 
+{% assign iferr = '{{#if error}}' %}
+{% assign err = '{{error}}' %}
 {% assign if = '{{#if working}}' %}
 {% assign endif = '{{/if}}' %}
+{% assign w = '{{working}}' %}
 
 ## Example:
 {% highlight html %}
+{{iferr}}
+  <div class="alert alert-danger">
+    {{err}}
+  </div>
+{{endif}}
+
 <form novalidate>
   {{cc}}
-  <button type="submit" class="btn btn-primary btn-block upgrade" disabled="{{working}}">
+  <button type="submit" class="btn btn-primary btn-block upgrade" disabled="{{w}}">
     Upgrade Today
     {{if}}
       <i class="fa fa-spinner fa-spin"></i>
@@ -72,17 +81,25 @@ You can of course, provide your own handlers instead of using these by pointing 
 {% endhighlight %}
 
 {% highlight coffeescript %}
-"click button": (e) ->
-    e.preventDefault()
-    Session.set 'working', true
+# Helpers
+working: ->
+  Session.get 'working'
 
-    Billing.createToken $("form"), (status, response) ->
-      if response.error
-        Session.set 'error', response.error.message
+error: ->
+  Session.get 'error'
+
+# Events
+"click button": (e) ->
+  e.preventDefault()
+  Session.set 'working', true
+
+  Billing.createToken $("form"), (status, response) ->
+    if response.error
+      Session.set 'error', response.error.message
+      Session.set 'working', false
+    else
+      Meteor.call 'createCustomer', Meteor.userId(), response, (error, response) ->
         Session.set 'working', false
-      else
-        Meteor.call 'createCustomer', Meteor.userId(), response, (error, response) ->
-          Session.set 'working', false
-          if error
-            Session.set 'error', error.reason
+        if error
+          Session.set 'error', error.reason
 {% endhighlight %}
