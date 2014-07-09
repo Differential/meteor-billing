@@ -50,7 +50,7 @@ Meteor.methods
   #  Get details about a customers credit card
   #
   retrieveCard: (userId) ->
-    console.log "Retrieving card for #{customerId}"
+    console.log "Retrieving card for #{userId}"
     user = BillingUser.first _id: userId
     unless user then throw new Meteor.Error 404, "User not found.  Cannot retrieve card info."
 

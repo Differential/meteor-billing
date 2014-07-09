@@ -4,7 +4,7 @@ Template.currentCreditCard.rendered = ->
   currentCardComputation = Deps.autorun ->
     billing = Meteor.user().billing
     if billing and billing.customerId and billing.cardId
-      Meteor.call 'retrieveCard', billing.customerId, billing.cardId, (err, response) ->
+      Meteor.call 'retrieveCard', Meteor.userId(), (err, response) ->
         unless err then Session.set 'currentCreditCard.card', response
 
 Template.currentCreditCard.helpers
