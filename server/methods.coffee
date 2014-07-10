@@ -97,7 +97,7 @@ Meteor.methods
         params = _.extend params, filters
       wrap 'charges', 'list', params
     else
-      throw new Meteor.Error 404, "No customer"
+      throw new Meteor.Error 404, "Customer not found.  Cannot list charges."
 
 
   #
