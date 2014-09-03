@@ -1,35 +1,40 @@
 Package.describe({
-  summary: "Various billing functionality packaged up."
+  name: "schnie:billing",
+  summary: "Various billing functionality packaged up.",
+  version: "1.0.0",
+  git: "https://github.com/Differential/meteor-billing"
 });
 
 Package.on_use(function (api, where) {
+  api.versionsFrom("METEOR@0.9.0");
+
   api.use([
     'templating',
     'less',
     'jquery',
     'deps',
-    'parsleyjs',
-    'accounts-t9n'
+    'natestrauser:parsleyjs@1.1.7',
+    'mrt:accounts-t9n'
   ], 'client');
 
   api.use([
     'accounts-password',
-    'npm',
-    'reststop2'
+    'arunoda:npm@0.2.6',
+    'hellogerard:reststop2@0.5.9'
   ], 'server');
 
   api.use([
     'coffeescript',
-    'minimongoid',
-    'stripe-server'
+    'mrt:minimongoid@0.8.3',
+    'mrt:stripe-server@0.1.2'
   ], ['client', 'server']);
 
 
-  api.add_files([
+  api.addFiles([
     'collections/users.coffee'
   ], ['client', 'server']);
 
-  api.add_files([
+  api.addFiles([
     'client/views/creditCard/creditCard.html',
     'client/views/creditCard/creditCard.less',
     'client/views/creditCard/creditCard.coffee',
@@ -51,12 +56,12 @@ Package.on_use(function (api, where) {
     'client/i18n/english.coffee'
   ], 'client');
 
-  api.add_files([
+  api.addFiles([
     'server/startup.coffee',
     'server/billing.coffee',
     'server/methods.coffee',
     'server/webhooks.coffee'
-  ], 'server'); 
+  ], 'server');
 
   api.export('BillingUser', ['server', 'client']);
 
