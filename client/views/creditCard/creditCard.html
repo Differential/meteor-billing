@@ -1,7 +1,7 @@
 <template name="creditCard">
   <form id="billing-creditcard">
     <div class="credit-card">
-      <h2>{{t9n "Billing Info"}} <img src="/packages/billing/public/img/credit-cards.png"></h2>
+      <h2>{{t9n "Billing Info"}} <img src="/packages/fantasyhub_billing/public/img/credit-cards.png"></h2>
       <div class="form-section">
         {{#if requireName}}
         <div class="form-group">
@@ -36,7 +36,7 @@
           </div>
           <div class="col-md-5">
             <div class="form-group">
-              <label>{{t9n "Card Code"}} <img src="/packages/billing/public/img/cvc.png"></label>
+              <label>{{t9n "Card Code"}} <img src="/packages/fantasyhub_billing/public/img/cvc.png"></label>
               <input parsley-type="number" name="cc-cvc" class="form-control" placeholder="CVC" required/>
             </div>
           </div>
