@@ -9,6 +9,10 @@
       "1.0.2"
     ],
     [
+      "anti:i18n",
+      "0.4.3"
+    ],
+    [
       "application-configuration",
       "1.0.2"
     ],
@@ -73,10 +77,6 @@
       "1.0.0"
     ],
     [
-      "handlebars",
-      "1.0.0"
-    ],
-    [
       "hellogerard:reststop2",
       "0.5.9"
     ],
@@ -127,10 +127,6 @@
     [
       "mongo",
       "1.0.6"
-    ],
-    [
-      "mrt:accounts-t9n",
-      "0.0.13"
     ],
     [
       "mrt:minimongoid",

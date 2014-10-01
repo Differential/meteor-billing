@@ -28,4 +28,4 @@ ar =
   "Error canceling subscription": "خطأ فى الغاء الاشتراك"
   "Your subscription has been canceled": "تم الغاء اشتراكك"
 
-T9n.map "ar", ar
+i18n.map "ar", ar

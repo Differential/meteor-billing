@@ -11,7 +11,7 @@
       </div>
     {{/if}}
     <div class="row">
-      <h2>{{t9n "Past Charges"}}</h2>
+      <h2>{{i18n "Past Charges"}}</h2>
       <div class="panel-group" id="past-charge-accordion">
         {{#each charges}}
           {{> _charge}}
@@ -19,7 +19,7 @@
           {{#if chargesWorking}}
           <i class="icon-spinner icon-spin icon-large fa fa-spinner fa-3x fa-spin billing-loader"></i>
           {{else}}
-            {{t9n "Nothing to see here"}}
+            {{i18n "Nothing to see here"}}
           {{/if}}
         {{/each}}
       </div>
@@ -34,12 +34,12 @@
         <a data-toggle="collapse" href="#{{id}}">
           <span class="text-primary">
             <strong>
-              {{chargeAmt amount}} {{t9n "on"}} {{chargeDate this.created}}
+              {{chargeAmt amount}} {{i18n "on"}} {{chargeDate this.created}}
             </strong>
           </span>
           <span class="pull-right">
             {{#if paid}}
-            <span class="label label-success">{{t9n "Paid"}} </span>
+            <span class="label label-success">{{i18n "Paid"}} </span>
             {{/if}}
           </span>
         </a>

@@ -30,4 +30,4 @@ en =
   "Error canceling subscription": "Error canceling subscription."
   "Your subscription has been canceled": "Your subscription has been canceled."
 
-T9n.map "en", en
+i18n.map "en", en

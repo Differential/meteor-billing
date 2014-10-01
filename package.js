@@ -17,7 +17,7 @@ Package.on_use(function (api, where) {
     'jquery',
     'deps',
     'natestrauser:parsleyjs@1.1.7',
-    'mrt:accounts-t9n'
+    'anti:i18n'
   ], 'client');
 
   api.use([
@@ -67,5 +67,6 @@ Package.on_use(function (api, where) {
   ], 'server');
 
   api.export('BillingUser', ['server', 'client']);
+  api.export('i18n', 'client');
 
 });
