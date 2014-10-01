@@ -18,7 +18,7 @@ Package.on_use(function (api, where) {
     'jquery',
     'deps',
     'natestrauser:parsleyjs@1.1.7',
-    'anti:i18n'
+    'anti:i18n@0.4.3'
   ], 'client');
 
   api.use([
