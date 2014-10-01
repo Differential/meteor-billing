@@ -1,5 +1,5 @@
 Package.describe({
-  name: "billing",
+  name: "ryw:billing",
   summary: "Various billing functionality packaged up.",
   version: "2.0.0",
   git: "https://github.com/Differential/meteor-billing"
