@@ -1,12 +1,13 @@
 Package.describe({
-  name: "schnie:billing",
+  name: "differential:billing",
   summary: "Various billing functionality packaged up.",
-  version: "1.0.0",
+  version: "2.0.0",
   git: "https://github.com/Differential/meteor-billing"
 });
 
 Npm.depends({
-  stripe: "2.8.0" });
+  stripe: "2.8.0"
+});
 
 Package.on_use(function (api, where) {
   api.versionsFrom("METEOR@0.9.0");
