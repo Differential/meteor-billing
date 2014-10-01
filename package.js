@@ -5,6 +5,9 @@ Package.describe({
   git: "https://github.com/Differential/meteor-billing"
 });
 
+Npm.depends({
+  stripe: "2.8.0" });
+
 Package.on_use(function (api, where) {
   api.versionsFrom("METEOR@0.9.0");
 
@@ -25,8 +28,7 @@ Package.on_use(function (api, where) {
 
   api.use([
     'coffeescript',
-    'mrt:minimongoid@0.8.3',
-    'mrt:stripe-server@0.1.2'
+    'mrt:minimongoid@0.8.3'
   ], ['client', 'server']);
 
 

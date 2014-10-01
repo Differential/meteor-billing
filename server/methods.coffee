@@ -1,5 +1,5 @@
 wrap = (resource, method, params) ->
-  Stripe = StripeAPI(Billing.settings.secretKey)
+  Stripe = Npm.require('stripe')(Billing.settings.secretKey)
   call = Async.wrap Stripe[resource], method
   try
     call params
@@ -18,7 +18,7 @@ Meteor.methods
     user = BillingUser.first(_id: userId)
     unless user then throw new Meteor.Error 404, "User not found.  Customer cannot be created."
 
-    Stripe = StripeAPI(Billing.settings.secretKey)
+    Stripe = Npm.require('stripe')(Billing.settings.secretKey)
     create = Async.wrap Stripe.customers, 'create'
     try
       email = if user.emails then user.emails[0].address else ''
@@ -37,7 +37,7 @@ Meteor.methods
     user = BillingUser.first _id: userId
     unless user then throw new Meteor.Error 404, "User not found.  Card cannot be created."
 
-    Stripe = StripeAPI(Billing.settings.secretKey)
+    Stripe = Npm.require('stripe')(Billing.settings.secretKey)
     createCard = Async.wrap Stripe.customers, 'createCard'
     try
       card = createCard user.billing.customerId, card: card.id
@@ -54,7 +54,7 @@ Meteor.methods
     user = BillingUser.first _id: userId
     unless user then throw new Meteor.Error 404, "User not found.  Cannot retrieve card info."
 
-    Stripe = StripeAPI(Billing.settings.secretKey)
+    Stripe = Npm.require('stripe')(Billing.settings.secretKey)
     retrieveCard = Async.wrap Stripe.customers, 'retrieveCard'
     try
       retrieveCard user.billing.customerId, user.billing.cardId
@@ -70,7 +70,7 @@ Meteor.methods
     user = BillingUser.first _id: userId
     unless user then throw new Meteor.Error 404, "User not found.  Card cannot be deleted."
 
-    Stripe = StripeAPI(Billing.settings.secretKey)
+    Stripe = Npm.require('stripe')(Billing.settings.secretKey)
     deleteCard = Async.wrap Stripe.customers, 'deleteCard'
     try
       card = deleteCard user.billing.customerId, user.billing.cardId
@@ -110,7 +110,7 @@ Meteor.methods
     unless user and customerId then new Meteor.Error 404, "User not found.  Subscription cannot be updated."
     if user.billing.waiveFees or user.billing.admin then return
 
-    Stripe = StripeAPI(Billing.settings.secretKey)
+    Stripe = Npm.require('stripe')(Billing.settings.secretKey)
     updateSubscription = Async.wrap Stripe.customers, 'updateSubscription'
     try
       subscription = updateSubscription customerId, params
@@ -128,7 +128,7 @@ Meteor.methods
     user = BillingUser.first('billing.customerId': customerId)
     unless user then new Meteor.Error 404, "User not found.  Subscription cannot be canceled."
 
-    Stripe = StripeAPI(Billing.settings.secretKey)
+    Stripe = Npm.require('stripe')(Billing.settings.secretKey)
     cancelSubscription = Async.wrap Stripe.customers, 'cancelSubscription'
     try
       cancelSubscription customerId
@@ -152,7 +152,7 @@ Meteor.methods
   #
   getInvoices: ->
     console.log 'Getting past invoices for', Meteor.userId()
-    Stripe = StripeAPI(Billing.settings.secretKey)
+    Stripe = Npm.require('stripe')(Billing.settings.secretKey)
     if Meteor.user().billing
       customerId = Meteor.user().billing.customerId
       try
@@ -170,7 +170,7 @@ Meteor.methods
   #
   getUpcomingInvoice: ->
     console.log 'Getting upcoming invoice for', Meteor.userId()
-    Stripe = StripeAPI(Billing.settings.secretKey)
+    Stripe = Npm.require('stripe')(Billing.settings.secretKey)
     if Meteor.user().billing
       customerId = Meteor.user().billing.customerId
       try
