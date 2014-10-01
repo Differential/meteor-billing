@@ -55,7 +55,8 @@ Package.on_use(function (api, where) {
     'client/styles.less',
     'public/img/credit-cards.png',
     'public/img/cvc.png',
-    'client/i18n/english.coffee'
+    'client/i18n/english.coffee',
+    'client/i18n/arabic.coffee'
   ], 'client');
 
   api.addFiles([
