@@ -25,4 +25,4 @@ fr=
   "Error canceling subscription": "Erreur survenue pour annuler votre souscription.",
   "Your subscription has been canceled": "Votre souscription a bien été annulée."
 
-T9n.map "fr", fr
+i18n.map "fr", fr
